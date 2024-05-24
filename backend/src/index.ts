@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'; //from chatgpt
+dotenv.config(); // Load environment variables from .env file
 import app from "./app.js";
 import {connectToDatabase} from "./db/connection.js";
 
