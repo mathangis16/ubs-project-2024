@@ -1,4 +1,4 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme, Typography } from "@mui/material";
 import React from "react";
 import TypingAnim from "../components/typer/TypingAnim";
 
@@ -17,9 +17,6 @@ const Home = () => {
           mt: 3,
         }}
       >
-        <Box>
-          <TypingAnim />
-        </Box>
         <Box
           sx={{
             width: "100%",
@@ -29,34 +26,51 @@ const Home = () => {
             my: 10,
           }}
         >
-          <img
+          { /* <img
             src="robot.png"
             alt="robot"
             style={{ width: "200px", margin: "auto" }}
-          />
-          <img
-            className="image-inverted rotate" //here rotate specifications are given in index.css
+        /> */}
+          { /* <img
+            className="image-inverted rotate"    //here rotate specifications are given in index.css
             src="openai.png"
             alt="openai"
             style={{ width: "200px", margin: "auto" }}
-          />
+    /> */}
+        <img
+            className="star"
+            src="stars.png"
+            alt="stars"
+            //style={{ width: "200px", margin: "auto" }}
+    />
         </Box>
-        <Box sx={{ display: "flex", mx: "auto" }}>
-          <img
-            src="chat.png"
-            alt="chatbot"
-            style={{
-              display: "flex",
-              margin: "auto",
-              width: isBelowMd ? "80%" : "60%",
-              borderRadius: 20,
-              boxShadow: "-5px -5px 105px #64f3d5",
-              marginTop: 20,
-              marginBottom: 20,
-              padding: 10,
-            }}
-          />
+        {/*<Box sx={{ display: "flex", mx: "auto", position: "absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"screen"}}>
+            <img
+            className="moon"
+            src="moon.png"
+            alt="moon"
+        />
         </Box>
+        <Box sx={{ display: "flex", mx: "auto", position: "absolute", top:0, left:0, width:"100%", height:"100%" }}>
+            <img
+            className="mountains_behind"
+            src="mountains_behind.png"
+            alt="mountains_behind"
+            style={{ objectFit:"cover", margin: "auto" }}
+        />
+        </Box>
+        <Box>
+            <Typography sx={{ display: "flex", justifyContent:"center", alignItems:"center", position:"absolute" }}> Tobias </Typography>
+        </Box>
+        <Box sx={{ display: "flex", mx: "auto", position: "absolute", top:0, left:0, width:"100%", height:"100%" }}>
+            <img
+            className="mountains_front"
+            src="mountains_front.png"
+            alt="mountains_front"
+            style={{ objectFit: "cover", margin:"auto" }}
+        />
+        </Box>
+*/}
       </Box>
     </Box>
   );

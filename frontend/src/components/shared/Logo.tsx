@@ -27,7 +27,7 @@ const Logo = () => {
           textShadow: "2px 2px 20px #000",
         }}
       >
-        <span style={{ fontSize: "20px", color: "black" }}>ToBias</span> 
+        <span style={{ fontSize: "20px", color: "white" }}>ToBias</span> 
 
       </Typography>
     </div>

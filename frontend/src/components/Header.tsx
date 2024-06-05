@@ -23,6 +23,12 @@ const Header = () => {
                 textColor="black"
               />
               <NavigationLink
+                bg="#00fffc"
+                to="/discussionForum"
+                text="Go To Discussion Forum"
+                textColor="black"
+              />
+              <NavigationLink
                 bg="#51538f"
                 textColor="white"
                 to="/"
