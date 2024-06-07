@@ -4,7 +4,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
-//import DiscussionForum from "./pages/DiscussionForum";
+import DiscussionForum from "./pages/DiscussionForum";
+//import forum_app from "../components/forum/forum_app.js";
 import NotFound from "./pages/NotFound";
 import { useAuth } from "./context/AuthContext";
 //import HomeForum from "./components/forum/HomeForum";
@@ -23,10 +24,7 @@ function App() {
         {auth?.isLoggedIn && auth.user && (
           <Route path="/chat" element={<Chat />} />
         )}
-        {/*<Route path="/discussionForum" element={<DiscussionForum />}>
-          <Route path="/dashboard" element={<HomeForum />} />
-          <Route path="/:id/replies" element={<Replies />} /> 
-        </Route>*/}
+        <Route path="/discussionForum" element={<DiscussionForum />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
