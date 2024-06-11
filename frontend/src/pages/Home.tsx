@@ -17,6 +17,9 @@ const Home = () => {
           mt: 3,
         }}
       >
+        <Box>
+          <TypingAnim />
+        </Box>
         <Box
           sx={{
             width: "100%",
@@ -40,7 +43,7 @@ const Home = () => {
         <img
             className="star"
             src="stars.png"
-            alt="stars"
+            alt="star"
             //style={{ width: "200px", margin: "auto" }}
     />
         </Box>

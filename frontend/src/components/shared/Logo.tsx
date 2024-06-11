@@ -19,7 +19,7 @@ const Logo = () => {
           className="image-inverted"
         />
       </Link>{" "}
-      <Typography
+       <Typography
         sx={{
           display: { md: "block", sm: "none", xs: "none" },
           mr: "auto",
@@ -29,7 +29,7 @@ const Logo = () => {
       >
         <span style={{ fontSize: "20px", color: "white" }}>ToBias</span> 
 
-      </Typography>
+      </Typography>  
     </div>
   );
 };

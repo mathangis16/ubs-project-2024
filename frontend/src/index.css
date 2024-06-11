@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 html,body{
   margin:0;
   padding:0;
   min-height:100vh;
-  background: linear-gradient(#2b1055,#7597de);
+  background: linear-gradient(#2b1055,white);
   color:#543d7b;
-  font-family: "Roboto", serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .image-inverted{
@@ -27,20 +27,6 @@ html,body{
 .MuiOutlinedInput-input-root.Mui-focused,
 .MuiOutlinedInput-notchedOutline{
   border-color: white !important;
-}
-
-/* remove the rotate stuff */
-.rotate {
-  animation: rotation 8s infinite linear;
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
 }
 
 .mountains_front {

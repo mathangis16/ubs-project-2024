@@ -76,11 +76,11 @@ const Login = () => {
                 mt: 2,
                 width: "400px",
                 borderRadius: 2,
-                bgcolor: "#465892",
-                color: "white",
+                bgcolor: "#f99417",
+                color: "black",
                 ":hover": {
                   bgcolor: "white",
-                  color: "#465892",
+                  color: "black",
                 },
               }}
               endIcon={<IoIosLogIn />}
