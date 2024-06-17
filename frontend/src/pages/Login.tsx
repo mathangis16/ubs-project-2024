@@ -23,10 +23,18 @@ const Login = () => {
     }
   };
   useEffect(() => {
+    // if (auth?.user) {
+    //   return navigate("/chat");
+    // }
     if (auth?.user) {
-      return navigate("/chat");
-    }
-  }, [auth]);
+      console.log("User data:", auth.user); // Log the user data
+      if (auth.user.isAdmin) {
+      navigate("/DiscussionForum");
+      } else {
+      navigate("/chat");
+      }
+      }
+      }, [auth]);
   return (
     <Box width={"100%"} height={"100%"}>
       {/*<Box padding={8} mt={8} display={{ md: "flex", sm: "none", xs: "none" }}>

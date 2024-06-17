@@ -15,6 +15,7 @@ import {
 type User = {
   name: string;
   email: string;
+  isAdmin: boolean;
 };
 type UserAuth = {
   isLoggedIn: boolean;
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     async function checkStatus() {
       const data = await checkAuthStatus();
       if (data) {
-        setUser({ email: data.email, name: data.name });
+        setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin });
         setIsLoggedIn(true);
       }
     }
@@ -43,14 +44,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (email: string, password: string) => {
     const data = await loginUser(email, password);
     if (data) {
-      setUser({ email: data.email, name: data.name });
+      setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin });
       setIsLoggedIn(true);
     }
   };
   const signup = async (name: string, email: string, password: string) => {
     const data = await signupUser(name, email, password);
     if (data) {
-      setUser({ email: data.email, name: data.name });
+      setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin });
       setIsLoggedIn(true);
     }
   };
