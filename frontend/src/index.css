@@ -4,7 +4,8 @@ html,body{
   margin:0;
   padding:0;
   min-height:100vh;
-  background: linear-gradient(#2b1055,white);
+  /* background: linear-gradient(#2b1055,white); */
+  background: rgb(242, 234, 234);
   color:#543d7b;
   font-family: "Space Grotesk", sans-serif;
 }
@@ -29,7 +30,16 @@ html,body{
   border-color: white !important;
 }
 
-.mountains_front {
+/* .mountains_front {
   object-fit: "cover";
+} */
+
+.diversity {
+  object-fit: "cover";
+}
+
+.tobias {
+  display: 'flex',
+  /* justifyContent: 'flex-start' */
 }
 

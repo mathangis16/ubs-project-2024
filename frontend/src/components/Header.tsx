@@ -9,7 +9,7 @@ const Header = () => {
   const auth = useAuth();
   return (
     <AppBar
-      sx={{ bgcolor: "transparent", position: "static", boxShadow: "none" }}
+      sx={{ bgcolor: "#543d7b", position: "static", boxShadow: "none" }}
     >
       <Toolbar sx={{ display: "flex" }}>
         <Logo />

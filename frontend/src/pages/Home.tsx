@@ -20,13 +20,14 @@ const Home = () => {
         <Box>
           <TypingAnim />
         </Box>
+        <Box><h1 style={{ textAlign: 'center', fontSize:'50px',marginBottom:'0px' }}> Tobias </h1></Box>
         <Box
           sx={{
             width: "100%",
             display: "flex",
             flexDirection: { md: "row", xs: "column", sm: "column" },
             gap: 5,
-            my: 10,
+            //my: 10,
           }}
         >
           { /* <img
@@ -40,13 +41,51 @@ const Home = () => {
             alt="openai"
             style={{ width: "200px", margin: "auto" }}
     /> */}
-        <img
+        {/* <img
             className="star"
             src="stars.png"
             alt="star"
             //style={{ width: "200px", margin: "auto" }}
-    />
+    /> */}
         </Box>
+        <Box>
+          <img className="diversity"
+            src="diversity_no_bg.png"
+            alt="diversity"></img>
+        </Box>
+        <Box><h2 style={{ textAlign: 'center', marginLeft:'20px',marginBottom:'10px' }}>Diversity, equity, inclusion and belonging (DEIB) make up a framework designed to create a workplace that is fair and welcoming to employees of various backgrounds.</h2></Box>
+        {/* <Box sx={{display:"flex", justifyContent:"flex-start"}}> 
+        <img className="tobias"
+            src="tobias.jpeg"
+            alt="tobias"
+            width='80px'
+            ></img>
+        </Box>
+        <Box><p>Over the last few decades, the world has taken significant strides in ensuring equality, women empowerment etc. 
+          Although we should appreciate the progress made, it is important that we acknowledge that people still face issues in this space. 
+          The problem lies in the fact that not many people are confident enough to seek support, help or dont think its a problem that is worth escalating. 
+          Furthermore, people might notice other people being victims of gender bias / inequality but do not feel the need to take action on it since they are not the ones on the receiving end. 
+          The problem lies in the fact that there is no platform / product that people can use where they can learn, track, escalate (anonymously or not) and seek moral support in situations that might arise. 
+          To tackle all this we have Tobias</p></Box> */}
+        <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        marginTop="0px"
+      >
+      <Box mx={2}>
+        <img src="tobias.jpeg" alt="tobias" style={{ width: '100px', height: 'auto' }} />
+      </Box>
+      <Box mx={2}>
+        {/* <Typography variant="h6">This is your text next to the image</Typography> */}
+        <p>Over the last few decades, the world has taken significant strides in ensuring equality, women empowerment etc. 
+          Although we should appreciate the progress made, it is important that we acknowledge that people still face issues in this space. 
+          The problem lies in the fact that not many people are confident enough to seek support, help or dont think its a problem that is worth escalating. 
+          Furthermore, people might notice other people being victims of gender bias / inequality but do not feel the need to take action on it since they are not the ones on the receiving end. 
+          The problem lies in the fact that there is no platform / product that people can use where they can learn, track, escalate (anonymously or not) and seek moral support in situations that might arise.</p>
+        <p style={{ textAlign: 'center',fontSize:'25px'}}>To tackle all this we have Tobias</p>
+      </Box>
+      </Box>
         {/*<Box sx={{ display: "flex", mx: "auto", position: "absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"screen"}}>
             <img
             className="moon"

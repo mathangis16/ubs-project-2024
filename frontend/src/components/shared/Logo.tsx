@@ -12,14 +12,14 @@ const Logo = () => {
     >
       <Link to={"/"}>
         <img
-          src="tobias.jpeg"
-          alt="openai"
-          width={"30px"}
-          height={"30px"}
+          src="new_logo.png"
+          alt="tobias"
+          width={"140px"}
+          height={"40px"}
           className="image-inverted"
         />
       </Link>{" "}
-       <Typography
+       {/* <Typography
         sx={{
           display: { md: "block", sm: "none", xs: "none" },
           mr: "auto",
@@ -29,7 +29,7 @@ const Logo = () => {
       >
         <span style={{ fontSize: "20px", color: "white" }}>ToBias</span> 
 
-      </Typography>  
+      </Typography>   */}
     </div>
   );
 };
