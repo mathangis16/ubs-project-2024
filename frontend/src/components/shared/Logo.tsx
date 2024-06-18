@@ -14,7 +14,7 @@ const Logo = () => {
         <img
           src="new_logo.png"
           alt="tobias"
-          width={"140px"}
+          width={"150px"}
           height={"40px"}
           className="image-inverted"
         />

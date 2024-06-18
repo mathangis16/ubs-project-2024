@@ -104,15 +104,15 @@ const DiscussionForum: React.FC = () => {
       }}
     >
       <Typography
-        sx={{ textAlign: 'center', fontSize: '40px', color: 'white', mb: 2, mx: 'auto', fontWeight: '600' }}
+        sx={{ textAlign: 'center', fontSize: '40px', color: '#543d7b', mb: 2, mx: 'auto', fontWeight: '600' }}
       >
-        Forum
+        Discussion Forum
       </Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column', px: 3 }}>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Title / Description"
-            variant="outlined"
+            label="Title"
+            //variant="outlined"
             fullWidth
             value={thread}
             onChange={(e) => setThread(e.target.value)}
@@ -120,7 +120,7 @@ const DiscussionForum: React.FC = () => {
             sx={{ mb: 2 }}
           />
           <Button type="submit" variant="contained" color="primary">
-            CREATE THREAD
+            CREATE THREAD!
           </Button>
         </form>
         <Box

@@ -64,12 +64,13 @@ const Signup = () => {
               textAlign="center"
               padding={2}
               fontWeight={600}
+              color="#543d7b"
             >
               Signup
             </Typography>
-            <CustomizedInput type="text" name="name" label="Name" />
-            <CustomizedInput type="email" name="email" label="Email" />
-            <CustomizedInput type="password" name="password" label="Password" />
+            <CustomizedInput type="text" name="name" label="Name" text-color="black" />
+            <CustomizedInput type="email" name="email" label="Email" text-color="black" />
+            <CustomizedInput type="password" name="password" label="Password" text-color="black" />
             <Button
               type="submit"
               sx={{
@@ -78,11 +79,11 @@ const Signup = () => {
                 mt: 2,
                 width: "400px",
                 borderRadius: 2,
-                bgcolor: "#465892",
+                bgcolor: "#f99417",
                 color: "white",
                 ":hover": {
-                  bgcolor: "white",
-                  color: "#465892",
+                  bgcolor: "#543d7b",
+                  color: "white",
                 },
               }}
               endIcon={<IoIosLogIn />}

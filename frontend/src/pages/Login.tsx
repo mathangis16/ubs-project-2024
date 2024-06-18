@@ -31,7 +31,7 @@ const Login = () => {
       if (auth.user.isAdmin) {
       navigate("/DiscussionForum");
       } else {
-      navigate("/chat");
+      navigate("/menu");
       }
       }
       }, [auth]);
@@ -64,6 +64,7 @@ const Login = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              //backgroundColor:"black",
             }}
           >
             <Typography
@@ -71,11 +72,12 @@ const Login = () => {
               textAlign="center"
               padding={2}
               fontWeight={600}
+              color="#543d7b"
             >
               Login
             </Typography>
-            <CustomizedInput type="email" name="email" label="Email" />
-            <CustomizedInput type="password" name="password" label="Password" />
+            <CustomizedInput type="email" name="email" label="Email" text-color="black"/>
+            <CustomizedInput type="password" name="password" label="Password" text-color="black" />
             <Button
               type="submit"
               sx={{
@@ -85,10 +87,10 @@ const Login = () => {
                 width: "400px",
                 borderRadius: 2,
                 bgcolor: "#f99417",
-                color: "black",
+                color: "white",
                 ":hover": {
-                  bgcolor: "white",
-                  color: "black",
+                  bgcolor: "#543d7b",
+                  color: "white",
                 },
               }}
               endIcon={<IoIosLogIn />}

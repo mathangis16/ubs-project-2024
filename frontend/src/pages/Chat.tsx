@@ -117,7 +117,7 @@ const Chat = () => {
             </Box>
             <Box sx={{display:"flex", flex:{md:0.8, xs:1, sm:1}, flexDirection:"column", px:3,}}>
                 <Typography
-                    sx={{textAlign:"center", fontSize:"40px", color:"white", mb:2, mx:"auto",fontWeight:"600",}}
+                    sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",}}
                 >
                     ChatBot
                 </Typography>
