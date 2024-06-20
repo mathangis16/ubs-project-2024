@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
 import DiscussionForum from "./pages/DiscussionForum";
+import Questionaire from "./pages/Questionaire";
+import Dictionary from "./pages/Dictionary";
 import Menu from "./pages/Menu";
 //import forum_app from "../components/forum/forum_app.js";
 import NotFound from "./pages/NotFound";
@@ -27,6 +29,8 @@ function App() {
         )}
         <Route path="/chat" element={<Chat />} />
         <Route path="/discussionForum" element={<DiscussionForum />} />
+        <Route path="/questionaire" element={<Questionaire />} />
+        <Route path="/dictionary" element={<Dictionary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>

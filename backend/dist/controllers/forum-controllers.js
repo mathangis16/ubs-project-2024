@@ -9,7 +9,6 @@ export const createThread = async (req, res) => {
             likes: [],
         });
         await newThread.save();
-        // const threads: ThreadDocument[] = await Thread.find();
         const threads = await Thread.find();
         res.json({ message: "Thread created successfully!", threads });
     }
@@ -20,7 +19,6 @@ export const createThread = async (req, res) => {
 };
 export const getAllThreads = async (req, res) => {
     try {
-        // const threads: ThreadDocument[] = await Thread.find();
         const threads = await Thread.find();
         res.json({ threads });
     }

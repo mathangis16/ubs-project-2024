@@ -22,14 +22,14 @@ const images = [
     src: 'questionaire_2.jpeg',
     title: 'Questionaire',
     width: '40%', // Adjust width for better alignment
-    link: '/questionnaire',
+    link: '/questionaire',
   },
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
-  height: 350,
-  border: '1px solid black', // Add black border
+  height: 270,
+//   border: '1px solid black', // Add black border
   [theme.breakpoints.down('sm')]: {
     width: '100% !important', // Overrides inline-style
     height: 100,
