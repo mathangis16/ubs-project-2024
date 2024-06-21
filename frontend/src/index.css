@@ -5,7 +5,9 @@ html,body{
   padding:0;
   min-height:100vh;
   /* background: linear-gradient(#2b1055,white); */
-  background: rgb(242, 234, 234);
+  /* background: rgb(242, 234, 234); */
+  background: #fff8ed;
+  /* background: #27272c; */
   color:#543d7b;
   font-family: "Space Grotesk", sans-serif;
 }
@@ -42,6 +44,7 @@ html,body{
   display: 'flex',
   /* justifyContent: 'flex-start' */
 }
+
 
 
 

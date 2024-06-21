@@ -50,7 +50,7 @@ const Home = () => {
         </Box>
         <Box>
           <img className="diversity"
-            src="image_people.png"
+            src="image_people_final.png"
             alt="diversity"></img>
         </Box>
         <Box><h2 style={{ textAlign: 'center', marginLeft:'20px',marginBottom:'10px' }}>Diversity, equity, inclusion and belonging (DEIB) make up a framework designed to create a workplace that is fair and welcoming to employees of various backgrounds.</h2></Box>

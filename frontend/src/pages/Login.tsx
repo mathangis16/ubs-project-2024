@@ -48,6 +48,7 @@ const Login = () => {
         padding={2}
         ml={"auto"}
         mt={16}
+        // bgcolor={"black"}
       >
         <form
           onSubmit={handleSubmit}
