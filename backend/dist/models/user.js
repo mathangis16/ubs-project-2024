@@ -32,6 +32,14 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    gender: {
+        type: String,
+        required: true,
+    },
+    age: {
+        type: String,
+        required: true,
+    },
     chats: [chatSchema],
 });
 export default mongoose.model("User", userSchema);
