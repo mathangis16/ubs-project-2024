@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createThread, getAllThreads } from '../controllers/forum-controllers.js';
+import { createThread, getAllThreads } from '../controllers/thread-controllers.js';
 
 const forumRoutes = Router();
 

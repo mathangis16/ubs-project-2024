@@ -121,4 +121,4 @@ export default mongoose.model("Thread", threadSchema);
 // });
 // const ThreadModel = mongoose.model<ThreadDocument>('Thread', threadSchema);
 // export default ThreadModel;
-//# sourceMappingURL=threadModel.js.map
+//# sourceMappingURL=Thread.js.map

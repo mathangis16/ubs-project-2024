@@ -1,9 +1,8 @@
 import Thread from '../models/Thread.js';
 export const createThread = async (req, res) => {
-    const { title, content, userId } = req.body;
+    const { title, content, name } = req.body;
     try {
-        const newThread = new Thread({ title, content, user: userId });
-        // HAVE ADDED CONTENT AS A PARAM
+        const newThread = new Thread({ title, user: name });
         await newThread.save();
         const threads = await Thread.find().populate('user');
         res.status(201).json({ message: 'Thread created successfully', threads });
@@ -49,4 +48,4 @@ export const getAllThreads = async (req, res) => {
 //         res.status(500).json({ error_message: "Failed to fetch threads" });
 //     }
 // };
-//# sourceMappingURL=forum-controllers.js.map
+//# sourceMappingURL=thread-controllers.js.map
