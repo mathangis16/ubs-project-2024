@@ -16,7 +16,7 @@ const images = [
     src: 'discussion_forum_2.png',
     title: 'Discussion Forum',
     width: '40%', // Adjust width for better alignment
-    link: '/discussionForum',
+    link: '/forumUser',
   },
   {
     src: 'questionaire_2.jpeg',

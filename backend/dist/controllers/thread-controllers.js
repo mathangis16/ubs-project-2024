@@ -1,8 +1,13 @@
 import Thread from '../models/Thread.js';
+import User from '../models/User.js';
 export const createThread = async (req, res) => {
-    const { title, content, name } = req.body;
+    const { title, userName } = req.body;
     try {
-        const newThread = new Thread({ title, user: name });
+        const user = await User.findOne({ name: userName });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        const newThread = new Thread({ title, user: user._id });
         await newThread.save();
         const threads = await Thread.find().populate('user');
         res.status(201).json({ message: 'Thread created successfully', threads });
@@ -12,6 +17,39 @@ export const createThread = async (req, res) => {
     }
 };
 export const getAllThreads = async (req, res) => {
+    try {
+        const threads = await Thread.find().populate('user');
+        res.status(200).json({ threads });
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+export const createReply = async (req, res) => {
+    const { threadId, content, userName } = req.body;
+    try {
+        const user = await User.findOne({ name: userName });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        const thread = await Thread.findById(threadId);
+        if (!thread) {
+            return res.status(404).json({ message: 'Thread not found' });
+        }
+        const newReply = {
+            user: user._id,
+            content,
+        };
+        thread.replies.push(newReply);
+        await thread.save();
+        const populatedThread = await Thread.findById(threadId).populate('user').populate('replies.user');
+        res.status(201).json({ message: 'Reply added successfully', thread: populatedThread });
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+export const getAllReplies = async (req, res) => {
     try {
         const threads = await Thread.find().populate('user');
         res.status(200).json({ threads });

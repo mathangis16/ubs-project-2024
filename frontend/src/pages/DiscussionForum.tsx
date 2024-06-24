@@ -306,11 +306,10 @@ import { IoMdSend } from "react-icons/io";
 import { useAuth } from "../context/AuthContext";
 import { createThread, getAllThreads } from "../helpers/api-communicator";
 import toast from "react-hot-toast";
-//import { Thread } from "../models/Thread.js"; // Assuming you have a Thread type defined
 
 type Thread = {
   title: string;
-  id: string; // Assuming you have a unique identifier for each thread
+  id: string;
 };
 
 const DiscussionForum = () => {
@@ -336,11 +335,15 @@ const DiscussionForum = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      //@ts-ignore
-      await createThread(thread, auth?.user.name); // Directly creating the thread without user email
-      setThreadList((prevThreads) => [...prevThreads, { title: thread, id: "new_id" }]);
-      setThread("");
-      toast.success("Thread created successfully");
+      const userName = auth?.user?.name;
+      if (userName) {
+        await createThread(thread, userName);
+        setThreadList((prevThreads) => [...prevThreads, { title: thread, id: "new_id" }]);
+        setThread("");
+        toast.success("Thread created successfully");
+      } else {
+        toast.error("User name not found");
+      }
     } catch (error) {
       console.error("Failed to create thread:", error);
       toast.error("Failed to create thread");
@@ -348,69 +351,43 @@ const DiscussionForum = () => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flex: 1,
-        width: "100%",
-        height: "100%",
-        mt: 3,
-        gap: 3,
-      }}
-    >
-      <Box sx={{ flex: 0.2, display: { md: "flex", xs: "none", sm: "none" }, flexDirection: "column" }}>
-        {/* Sidebar content if needed */}
-      </Box>
-      <Box sx={{ flex: { md: 0.8, xs: 1, sm: 1 }, flexDirection: "column", px: 3 }}>
-        <Typography sx={{ textAlign: "center", fontSize: "40px", color: "#543d7b", mb: 2, mx: "auto", fontWeight: "600" }}>
-          Discussion Forum
-        </Typography>
-        <Box
-          sx={{
-            width: "100%",
-            height: "60vh",
-            borderRadius: 3,
-            mx: "auto",
-            display: "flex",
-            flexDirection: "column",
-            overflow: "scroll",
-            overflowX: "hidden",
-            overflowY: "auto",
-            scrollBehavior: "smooth",
-          }}
-        >
-          {threadList.map((thread) => (
-            <div className="thread__item" key={thread.id}>
-              <p>{thread.title}</p>
-              {/* Additional UI for likes, comments, etc. can be added here */}
-            </div>
-          ))}
-        </Box>
-        <form onSubmit={handleSubmit}>
-          <Box sx={{ width: "100%", borderRadius: 8, backgroundColor: "rgb(17,27,39)", display: "flex", margin: "auto" }}>
-            <input
-              type="text"
-              value={thread}
-              onChange={(e) => setThread(e.target.value)}
-              placeholder="Enter thread title"
-              style={{
-                width: "100%",
-                backgroundColor: "transparent",
-                padding: "30px",
-                border: "none",
-                outline: "none",
-                color: "white",
-                fontSize: "20px",
-              }}
-              required
-            />
-            <Button type="submit" sx={{ m1: "auto", color: "white", mx: 1 }}>
-              <IoMdSend />
-            </Button>
-          </Box>
-        </form>
-      </Box>
-    </Box>
+    <>
+			<main className='home'>
+				<h2 className='homeTitle'>Create a Thread!</h2>
+				<form className='homeForm' onSubmit={handleSubmit}>
+					<div className='home__container'>
+						<label htmlFor='thread'>Title </label>
+						<input
+							type='text'
+							name='thread'
+							required
+							value={thread}
+							onChange={(e) => setThread(e.target.value)}
+						/>
+					</div>
+					<button className='homeBtn'>CREATE</button>
+				</form>
+
+				<div className='thread__container'>
+					{threadList.map((thread) => (
+						<div className='thread__item' key={thread.id}>
+							<p>{thread.title}</p>
+							<div className='react__container'>
+								{/* <Likes
+									numberOfLikes={thread.likes.length}
+									threadId={thread.id}
+								/>
+								<Comments
+									numberOfComments={thread.replies.length}
+									threadId={thread.id}
+									title={thread.title}
+								/> */}
+							</div>
+						</div>
+					))}
+				</div>
+			</main>
+		</>
   );
 };
 

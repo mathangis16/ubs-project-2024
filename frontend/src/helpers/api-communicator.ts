@@ -69,9 +69,21 @@ export const logoutUser = async () => {
 };
 
 // Function to create a new thread
-export const createThread = async (title: string, content: string, userId: string) => {
+// export const createThread = async (title: string, content: string, userId: string) => {
+//   try {
+//     const res = await axios.post("discussionForum/create/thread", { title, content, userId });
+//     if (res.status !== 201) {
+//       throw new Error("Unable to create thread");
+//     }
+//     return res.data;
+//   } catch (error) {
+//     console.error("Error in creating thread:", error);
+//     throw error;
+//   }
+// };
+export const createThread = async (title: string, userName: string) => {
   try {
-    const res = await axios.post("discussionForum/create/thread", { title, content, userId });
+    const res = await axios.post("discussionForum/create/thread", { title, userName });
     if (res.status !== 201) {
       throw new Error("Unable to create thread");
     }
@@ -83,6 +95,18 @@ export const createThread = async (title: string, content: string, userId: strin
 };
 
 // Function to fetch all threads
+// export const getAllThreads = async () => {
+//   try {
+//     const res = await axios.get("discussionForum/all/threads");
+//     if (res.status !== 200) {
+//       throw new Error("Failed to fetch threads");
+//     }
+//     return res.data;
+//   } catch (error) {
+//     console.error("Error in fetching threads:", error);
+//     throw error;
+//   }
+// };
 export const getAllThreads = async () => {
   try {
     const res = await axios.get("discussionForum/all/threads");
@@ -92,6 +116,32 @@ export const getAllThreads = async () => {
     return res.data;
   } catch (error) {
     console.error("Error in fetching threads:", error);
+    throw error;
+  }
+};
+
+export const createReply = async (threadId: string, content: string, userName: string) => {
+  try {
+    const res = await axios.post('forumUser/create/reply', { threadId, content, userName });
+    if (res.status !== 201) {
+      throw new Error('Unable to create reply');
+    }
+    return res.data;
+  } catch (error) {
+    console.error('Error in creating reply:', error);
+    throw error;
+  }
+};
+
+export const getReplies = async (threadId: string) => {
+  try {
+    const res = await axios.get(`forumUser/thread/${threadId}/replies`);
+    if (res.status !== 200) {
+      throw new Error('Failed to fetch replies');
+    }
+    return res.data;
+  } catch (error) {
+    console.error('Error in fetching replies:', error);
     throw error;
   }
 };
