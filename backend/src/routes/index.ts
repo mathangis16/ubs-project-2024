@@ -7,5 +7,5 @@ const appRouter=Router();
 appRouter.use("/user", userRoutes);  //domain/api/v1/user
 appRouter.use("/chat", chatRoutes); //domain/api/v1/chats
 appRouter.use("/discussionForum", forumRoutes); //domain/api/v1/DiscussionForum
-appRouter.use("/forumUser", replyRoutes); //domain/api/v1/DiscussionForum
+appRouter.use("/forumUser", replyRoutes); 
 export default appRouter;

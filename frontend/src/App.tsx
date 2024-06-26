@@ -6,7 +6,7 @@ import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
 import DiscussionForum from "./pages/DiscussionForum";
 import ForumUser from "./pages/ForumUser";
-import RepliesUser from "./pages/RepliesUser"
+//import RepliesUser from "./pages/RepliesUser"
 import Questionaire from "./pages/Questionaire";
 import Dictionary from "./pages/Dictionary";
 import Menu from "./pages/Menu";
@@ -32,7 +32,7 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/discussionForum" element={<DiscussionForum />} />
         <Route path="/forumUser" element={<ForumUser />} />
-        <Route path="/repliesUser" element={<RepliesUser />} />
+        {/* <Route path="/:threadId/replies" element={<RepliesUser />} /> */}
         <Route path="/questionaire" element={<Questionaire />} />
         <Route path="/dictionary" element={<Dictionary />} />
         <Route path="*" element={<NotFound />} />

@@ -239,6 +239,8 @@ const Signup = () => {
   const auth = useAuth();
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
+  const [accessibilityNeeds, setAccessibilityNeeds] = useState("");
+  //const [country, setCountry] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -248,10 +250,12 @@ const Signup = () => {
     const password = formData.get("password") as string;
     const gender = formData.get("gender") as string;
     const age = formData.get("age") as string;
+    const accessibilityNeeds = formData.get("accessibilityNeeds") as string;
+    const country = formData.get("country") as string;
 
     try {
       toast.loading("Signing Up", { id: "signup" });
-      await auth?.signup(name, email, password, gender, age); // Pass gender
+      await auth?.signup(name, email, password, gender, age, accessibilityNeeds, country); // Pass gender
       toast.success("Signed Up Successfully", { id: "signup" });
     } catch (error) {
       console.log(error);
@@ -284,7 +288,7 @@ const Signup = () => {
           boxShadow: "10px 10px 20px #000",
           borderRadius: "10px",
           border: "none",
-          backgroundColor: "#543d7b", // Set the form background color to black
+          backgroundColor: "#543d7b", // Set the form background color
           color: "white", // Ensure text color is white for contrast
         }}
       >
@@ -344,8 +348,8 @@ const Signup = () => {
             <Select
               labelId="age-label"
               id="age"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
               label="Age"
               name="age"
               sx={{
@@ -371,6 +375,41 @@ const Signup = () => {
               <MenuItem value={"> 55"}>greater than 55 years old</MenuItem>
             </Select>
           </FormControl>
+          {/* accessibility needs */}
+          <FormControl fullWidth margin="normal">
+            <InputLabel id="accessibilityNeeds-label" style={{ color: "white" }}>Accessibility Needs</InputLabel>
+            <Select
+              labelId="accessibilityNeeds-label"
+              id="accessibilityNeeds"
+              value={accessibilityNeeds}
+              onChange={(e) => setAccessibilityNeeds(e.target.value)}
+              label="Accessibility Needs"
+              name="accessibilityNeeds"
+              sx={{
+                color: "white", // Set text color to white for visibility
+                '.MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white',
+                },
+                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white',
+                },
+                '&:hover .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white',
+                },
+                '.MuiSvgIcon-root ': {
+                  fill: "white !important",
+                }
+              }}
+            >
+              <MenuItem value={"None"}>None</MenuItem>
+              <MenuItem value={"Impaired vision"}>Impaired vision</MenuItem>
+              <MenuItem value={"Impaired hearing"}>Impaired hearing</MenuItem>
+              <MenuItem value={"Motor difficulties"}>Motor difficulties</MenuItem>
+              <MenuItem value={"Learning disabilities"}>Learning disabilities</MenuItem>
+            </Select>
+          </FormControl>
+          {/* country */}
+          <CustomizedInput type="text" name="country" label="Country" text-color="white" />
           <Button
             type="submit"
             sx={{

@@ -14,8 +14,10 @@ export const signupUser = async (
   password: string,
   gender: string,
   age: string,
+  accessibilityNeeds: string,
+  country: string
 ) => {
-  const res = await axios.post("/user/signup", { name, email, password, gender, age });
+  const res = await axios.post("/user/signup", { name, email, password, gender, age, accessibilityNeeds, country });
   if (res.status !== 201) {
     throw new Error("Unable to Signup");
   }
@@ -122,7 +124,7 @@ export const getAllThreads = async () => {
 
 export const createReply = async (threadId: string, content: string, userName: string) => {
   try {
-    const res = await axios.post('forumUser/create/reply', { threadId, content, userName });
+    const res = await axios.post("forumUser/create/reply", { threadId, content, userName });
     if (res.status !== 201) {
       throw new Error('Unable to create reply');
     }
@@ -133,9 +135,9 @@ export const createReply = async (threadId: string, content: string, userName: s
   }
 };
 
-export const getReplies = async (threadId: string) => {
+export const getAllReplies = async (threadId: string) => {
   try {
-    const res = await axios.get(`forumUser/thread/${threadId}/replies`);
+    const res = await axios.get("forumUser/thread/${threadId}/replies");
     if (res.status !== 200) {
       throw new Error('Failed to fetch replies');
     }

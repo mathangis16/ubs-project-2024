@@ -50,9 +50,13 @@ export const createReply = async (req, res) => {
     }
 };
 export const getAllReplies = async (req, res) => {
+    const { threadId } = req.params;
     try {
-        const threads = await Thread.find().populate('user');
-        res.status(200).json({ threads });
+        const thread = await Thread.findById(threadId).populate('replies.user');
+        if (!thread) {
+            return res.status(404).json({ message: 'Thread not found' });
+        }
+        res.status(200).json({ replies: thread.replies });
     }
     catch (error) {
         res.status(500).json({ message: 'Server error' });

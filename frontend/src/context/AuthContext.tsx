@@ -18,13 +18,15 @@ type User = {
   isAdmin: boolean;
   gender: string; // Added gender field
   age: string;
+  accessibilityNeeds: string;
+  country: string;
 };
 
 type UserAuth = {
   isLoggedIn: boolean;
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
-  signup: (name: string, email: string, password: string, gender: string, age: string) => Promise<void>; // Updated signature
+  signup: (name: string, email: string, password: string, gender: string, age: string, accessibilityNeeds: string, country: string) => Promise<void>; // Updated signature
   logout: () => Promise<void>;
 };
 
@@ -39,7 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     async function checkStatus() {
       const data = await checkAuthStatus();
       if (data) {
-        setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin, gender: data.gender, age: data.age });
+        setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin, gender: data.gender, age: data.age, accessibilityNeeds: data.accessibilityNeeds, country: data.country });
         setIsLoggedIn(true);
       }
     }
@@ -49,15 +51,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (email: string, password: string) => {
     const data = await loginUser(email, password);
     if (data) {
-      setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin, gender: data.gender, age: data.age });
+      setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin, gender: data.gender, age: data.age, accessibilityNeeds: data.accessibilityNeeds, country: data.country });
       setIsLoggedIn(true);
     }
   };
 
-  const signup = async (name: string, email: string, password: string, gender: string, age: string) => {
-    const data = await signupUser(name, email, password, gender, age); // Include gender
+  const signup = async (name: string, email: string, password: string, gender: string, age: string, accessibilityNeeds: string, country: string) => {
+    const data = await signupUser(name, email, password, gender, age, accessibilityNeeds, country); // Include gender
     if (data) {
-      setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin, gender: data.gender, age: data.age });
+      setUser({ email: data.email, name: data.name, isAdmin: data.isAdmin, gender: data.gender, age: data.age, accessibilityNeeds: data.accessibilityNeeds, country: data.country });
       setIsLoggedIn(true);
     }
   };

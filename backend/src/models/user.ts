@@ -40,6 +40,14 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    accessibilityNeeds: {
+        type:String,
+        required:true,
+    },
+    country: {
+        type:String,
+        required:true,
+    },
     chats: [chatSchema],
 });
 

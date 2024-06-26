@@ -26,11 +26,11 @@ export const userSignup = async (
 ) => {
   try {
     //user signup
-    const { name, email, password, gender, age } = req.body;
+    const { name, email, password, gender, age, accessibilityNeeds, country } = req.body;
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(401).send("User already registered");
     const hashedPassword = await hash(password, 10);
-    const user = new User({ name, email, password: hashedPassword, gender, age });
+    const user = new User({ name, email, password: hashedPassword, gender, age, accessibilityNeeds, country });
     await user.save();
 
     // create token and store cookie
@@ -54,7 +54,7 @@ export const userSignup = async (
 
     return res
       .status(201)
-      .json({ message: "OK", name: user.name, email: user.email, gender: user.gender, age: user.age });
+      .json({ message: "OK", name: user.name, email: user.email, gender: user.gender, age: user.age, accessibilityNeeds: user.accessibilityNeeds, country: user.country });
   } catch (error) {
     console.log(error);
     return res.status(200).json({ message: "ERROR", cause: error.message });

@@ -58,6 +58,8 @@ const Login = () => {
             boxShadow: "10px 10px 20px #000",
             borderRadius: "10px",
             border: "none",
+            backgroundColor: "#543d7b", // Set the form background color
+            color: "white", // Ensure text color is white for contrast
           }}
         >
           <Box
@@ -73,7 +75,7 @@ const Login = () => {
               textAlign="center"
               padding={2}
               fontWeight={600}
-              color="#543d7b"
+              color="white"
             >
               Login
             </Typography>
@@ -90,8 +92,8 @@ const Login = () => {
                 bgcolor: "#f99417",
                 color: "white",
                 ":hover": {
-                  bgcolor: "#543d7b",
-                  color: "white",
+                  bgcolor: "white",
+                  color: "#543d7b",
                 },
               }}
               endIcon={<IoIosLogIn />}

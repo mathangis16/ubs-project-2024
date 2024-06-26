@@ -32,9 +32,13 @@ html,body{
   border-color: white !important;
 }
 
-/* .mountains_front {
-  object-fit: "cover";
+/* .css-1j0kfqr-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+    background-color: black !important;
 } */
+
+.css-1j0kfqr-MuiButtonBase-root-MuiMenuItem-root {
+    background-color: #543d7b !important;
+}
 
 .diversity {
   object-fit: "cover";
