@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 interface Question {
   title: string;
   options: { [key: string]: string };
-  answer: string;
+  answer: string; // The correct answer choice number as a string
   flags: {
     gender: string;
     country: string;
@@ -48,14 +48,15 @@ const Questionaire: React.FC = () => {
       return;
     }
 
-    console.log('User data:', auth?.user);
+    console.log('User data:', auth?.user); // Log user data to debug
 
     const filtered = questions.filter((question) => {
-      // const ageGroup = getAgeGroup(auth.user.age);
+      // const ageGroup = getAgeGroup(auth?.user?.age ?? '');
       const ageGroup = getAgeGroup("12 to 25 years old");
-      const genderGroup = "Female";
+      // const userGender = auth?.user?.gender ?? '';
+      const userGender = "Female";
       return (
-        (question.flags.gender === genderGroup || question.flags.gender === 'Neutral') &&
+        (question.flags.gender === userGender || question.flags.gender === 'Neutral') &&
         question.flags.age.includes(ageGroup)
       );
     });
@@ -77,17 +78,15 @@ const Questionaire: React.FC = () => {
   const handleAnswerOptionClick = (selectedAnswer: string) => {
     if (selectedAnswer === filteredQuestions[currentQuestion].answer) {
       setScore(score + 1);
-      console.log(score);
     }
 
     const nextQuestion = currentQuestion + 1;
+
     if (nextQuestion < filteredQuestions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
-      if (score === filteredQuestions.length - 1) {
-        setShowText(true);
-      }
+      setShowText(score === filteredQuestions.length - 1);
     }
   };
 
@@ -100,10 +99,14 @@ const Questionaire: React.FC = () => {
       <Grid container spacing={3}>
         {showScore ? (
           <Grid item xs={12}>
-            <Typography style={{ color: "black" }}>
+            <Typography variant="h6" style={{ color: "black" }}>
               You scored {score} out of {filteredQuestions.length}
-              {showText && <Typography>Congratulations! You got all the answers correct!</Typography>}
             </Typography>
+            {showText && (
+              <Typography variant="h6" style={{ color: "black" }}>
+                Congratulations! You got all the answers correct!
+              </Typography>
+            )}
           </Grid>
         ) : (
           filteredQuestions.length > 0 && (
@@ -112,17 +115,17 @@ const Questionaire: React.FC = () => {
                 <Typography variant="h6" style={{ color: "black" }}>
                   {filteredQuestions[currentQuestion].title}
                 </Typography>
-                {Object.keys(filteredQuestions[currentQuestion].options).map((key) => (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    style={{ margin: '5px' }}
-                    key={key}
-                    onClick={() => handleAnswerOptionClick(filteredQuestions[currentQuestion].options[key])}
-                  >
-                    {filteredQuestions[currentQuestion].options[key]}
-                  </Button>
-                ))}
+                <div>
+                  {Object.entries(filteredQuestions[currentQuestion].options).map(([key, option]) => (
+                    <Button
+                      key={key}
+                      onClick={() => handleAnswerOptionClick(key)}
+                      style={{ display: 'block', margin: '10px 0' }}
+                    >
+                      {option}
+                    </Button>
+                  ))}
+                </div>
               </Paper>
             </Grid>
           )
@@ -133,6 +136,7 @@ const Questionaire: React.FC = () => {
 };
 
 export default Questionaire;
+
 
 
 
