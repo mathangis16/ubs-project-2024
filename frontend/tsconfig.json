@@ -4,6 +4,7 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "types": ["node"],                        //added this to fix error of require when using fs to read the json file
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,    //added this to fix the error of not reading the import statements
 
