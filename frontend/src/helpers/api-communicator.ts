@@ -34,6 +34,21 @@ export const checkAuthStatus = async () => {
   return data;
 };
 
+export const getUserDetails = async () => {
+  try {
+    const res = await axios.get("/user/details", {
+      withCredentials: true, // Ensure cookies are sent with the request
+    });
+    if (res.status !== 200) {
+      throw new Error("Unable to fetch user details");
+    }
+    return res.data;
+  } catch (error) {
+    console.error("Failed to fetch user details:", error);
+    throw error;
+  }
+};
+
 export const sendChatRequest = async (message: string) => {
   const res = await axios.post("/chat/new", { message });
   if (res.status !== 200) {

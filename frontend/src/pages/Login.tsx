@@ -4,7 +4,7 @@ import { Box, Typography, Button } from "@mui/material";
 import CustomizedInput from "../components/shared/CustomizedInput";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const auth = useAuth();
@@ -31,7 +31,7 @@ const Login = () => {
       if (auth.user.isAdmin) {
       navigate("/DiscussionForum");
       } else {
-      navigate("/menu");
+      navigate("/questionaire");
       }
       }
       }, [auth]);
@@ -40,6 +40,7 @@ const Login = () => {
       {/*<Box padding={8} mt={8} display={{ md: "flex", sm: "none", xs: "none" }}>
         <img src="airobot.png" alt="Robot" style={{ width: "400px" }} />
   </Box>*/}
+     {/* <Box background-image={"login_bg.jpg"}>  */}
       <Box
         display={"flex"}
         flex={{ xs: 1, md: 0.5 }}
@@ -47,7 +48,7 @@ const Login = () => {
         alignItems={"center"}
         padding={2}
         ml={"auto"}
-        mt={16}
+        mt={16} 
         // bgcolor={"black"}
       >
         <form
@@ -58,6 +59,7 @@ const Login = () => {
             boxShadow: "10px 10px 20px #000",
             borderRadius: "10px",
             border: "none",
+            // backgroundImage: "login_bg.jpg",
             backgroundColor: "#543d7b", // Set the form background color
             color: "white", // Ensure text color is white for contrast
           }}
@@ -76,9 +78,11 @@ const Login = () => {
               padding={2}
               fontWeight={600}
               color="white"
+              font-family="Space Grotesk"
             >
               Login
             </Typography>
+            <Typography textAlign="center" font-family="Space Grotesk">Welcome back!</Typography>
             <CustomizedInput type="email" name="email" label="Email" text-color="black"/>
             <CustomizedInput type="password" name="password" label="Password" text-color="black" />
             <Button
@@ -100,9 +104,11 @@ const Login = () => {
             >
               Login
             </Button>
+            <Typography textAlign="center" font-family="Space Grotesk" marginTop="10px">Don't have an account? Click <Link to="/signup" style={{ color: 'inherit', textDecoration: 'underline' }}>here</Link> to signup</Typography>
           </Box>
         </form>
       </Box>
+      {/* </Box> */}
     </Box>
   );
 };

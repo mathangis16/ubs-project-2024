@@ -8,9 +8,8 @@ html,body{
   background: #fff8ed;
   /* background: #27272c; */
   color:#543d7b;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Space Grotesk", serif;
 }
-
 
 .nav-link{
   font-weight: 600;
@@ -28,6 +27,10 @@ html,body{
   border-color: white !important;
 }
 
+.MuiTypography-root{
+	font-family: "Space Grotesk" !important;
+}
+
 /* .css-1j0kfqr-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
     background-color: black !important;
 } */
@@ -38,6 +41,10 @@ html,body{
 
 .diversity {
   object-fit: "cover";
+  background-attachment: "fixed";
+  background-position: center;
+  background-repeat: "no-repeat";
+  background-size: "cover";
 }
 
 .tobias {
@@ -45,11 +52,17 @@ html,body{
   /* justifyContent: 'flex-start' */
 }
 
+.Login {
+	background-image: "../public/login_bg.jpg" !important;
+	font-family: "Space Grotesk" !important;
+	z-index: '100px';
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: "Space Grotesk", serif;
+	font-family: "Space Grotesk" !important;
 }
 input {
 	padding: 10px 20px;
@@ -60,9 +73,7 @@ input {
 a {
 	text-decoration: none;
 }
-.register,
-.login,
-.home,
+
 .replies,
 .modal {
 	display: flex;
@@ -73,20 +84,18 @@ a {
 	min-height: 100vh;
 	padding: 30px;
 }
-.registerTitle,
-.loginTitle,
+
 .homeTitle,
 .repliesTitle {
 	margin-bottom: 30px;
 }
-.registerForm,
+/* .registerForm,
 .loginForm {
 	width: 80%;
 	display: flex;
 	flex-direction: column;
-}
-.registerBtn,
-.loginBtn,
+} */
+
 .homeBtn,
 .modalBtn {
 	display: block;

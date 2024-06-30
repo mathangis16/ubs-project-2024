@@ -92,10 +92,10 @@ const Chat = () => {
                         {auth?.user?.name[0]}
                         {auth?.user?.name.split(" ")[1][0]}
                     </Avatar>
-                    <Typography sx={{mx:"auto", fontFamily:"work sans"}}>
+                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk"}}>
                         Hi I am chat Tobias
                     </Typography>
-                    <Typography sx={{mx:"auto", fontFamily:"work sans", my:4, p:3}}>
+                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", my:4, p:3}}>
                         Are you facing troubles at your workplace and dont know who to talk to well I'm here for you!
                     </Typography>
                     <Button
@@ -105,6 +105,7 @@ const Chat = () => {
                             my:"auto",
                             color:"white",
                             fontWeight:"700",
+                            fontFamily: "Space Grotesk",
                             borderRadius:3,
                             mx:"auto",
                             bgcolor: red[300],
@@ -117,7 +118,7 @@ const Chat = () => {
             </Box>
             <Box sx={{display:"flex", flex:{md:0.8, xs:1, sm:1}, flexDirection:"column", px:3,}}>
                 <Typography
-                    sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",}}
+                    sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",fontFamily:"Space Grotesk"}}
                 >
                     ChatBot
                 </Typography>
@@ -152,6 +153,7 @@ const Chat = () => {
                             outline:"none",
                             color:"white",
                             fontSize:"20px",
+                            fontFamily:"Space Grotesk",
                         }}
                     />
                 <IconButton onClick={handleSubmit} sx={{ m1:"auto", color:"white", mx:1}}>

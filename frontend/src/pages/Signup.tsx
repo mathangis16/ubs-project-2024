@@ -232,7 +232,7 @@ import { Box, Typography, Button, FormControl, InputLabel, Select, MenuItem } fr
 import CustomizedInput from "../components/shared/CustomizedInput";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -278,6 +278,7 @@ const Signup = () => {
         alignItems: "center",
         minHeight: "100vh",
         backgroundColor: "#fff8ed",
+        marginTop:"40px",
       }}
     >
       <form
@@ -308,6 +309,7 @@ const Signup = () => {
           >
             Signup
           </Typography>
+          <Typography textAlign="center" font-family="Space Grotesk">Welcome! Start your journey with us!</Typography>
           <CustomizedInput type="text" name="name" label="Name" text-color="white" />
           <CustomizedInput type="email" name="email" label="Email" text-color="white" />
           <CustomizedInput type="password" name="password" label="Password" text-color="white" />
@@ -429,6 +431,7 @@ const Signup = () => {
           >
             Signup
           </Button>
+          <Typography textAlign="center" font-family="Space Grotesk" marginTop="10px">Already have an account? Click <Link to="/login" style={{ color: 'inherit', textDecoration: 'underline' }}>here</Link> to login</Typography>
         </Box>
       </form>
     </Box>

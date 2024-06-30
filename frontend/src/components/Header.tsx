@@ -22,12 +22,12 @@ const Header = () => {
                 text="Chat"
                 textColor="white"
               /> */}
-              {/* <NavigationLink
+              <NavigationLink
                 bg="#f99417"
-                to="http://localhost:3001/dashboard"
-                text="Go To Discussion Forum"
+                to="/menu"
+                text="Menu"
                 textColor="white"
-              /> */}
+              />
               <NavigationLink
                 bg="#f99417"
                 textColor="white"

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Grid, Paper, Button } from '@mui/material';
 import { useAuth } from "../context/AuthContext";
+import { getUserDetails } from "../helpers/api-communicator"; // Make sure this function is implemented
 
 interface Question {
   title: string;
   options: { [key: string]: string };
-  answer: string; // The correct answer choice number as a string
+  answer: string;
   flags: {
     gender: string;
     country: string;
@@ -20,6 +21,8 @@ const Questionaire: React.FC = () => {
   const [showScore, setShowScore] = useState(false);
   const [showText, setShowText] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [userDetails, setUserDetails] = useState<any>(null);
+
   const auth = useAuth();
 
   useEffect(() => {
@@ -37,30 +40,38 @@ const Questionaire: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (questions.length > 0) {
+    const fetchDetails = async () => {
+      if (auth?.user) {
+        const data = await getUserDetails();
+        if (data) {
+          setUserDetails(data);
+        }
+      }
+    };
+    fetchDetails();
+  }, [auth?.user]);
+
+  useEffect(() => {
+    if (questions.length > 0 && userDetails) {
       filterQuestions();
     }
-  }, [questions, auth?.user]);
+  }, [questions, userDetails]);
 
   const filterQuestions = () => {
-    if (!auth?.user) {
-      console.warn('User data is not available');
+    if (!userDetails) {
+      console.warn('User details are not available');
       return;
     }
 
-    console.log('User data:', auth?.user); // Log user data to debug
+    const { gender, age } = userDetails;
+    const ageGroup = getAgeGroup(age);
 
-    const filtered = questions.filter((question) => {
-      // const ageGroup = getAgeGroup(auth?.user?.age ?? '');
-      const ageGroup = getAgeGroup("12 to 25 years old");
-      // const userGender = auth?.user?.gender ?? '';
-      const userGender = "Female";
-      return (
-        (question.flags.gender === userGender || question.flags.gender === 'Neutral') &&
-        question.flags.age.includes(ageGroup)
-      );
-    });
+    const filtered = questions.filter((question) => (
+      (question.flags.gender === gender || question.flags.gender === 'Neutral') &&
+      question.flags.age.includes(ageGroup)
+    ));
 
+    // Shuffle the filtered questions and pick up to 10
     const shuffled = filtered.sort(() => 0.5 - Math.random());
     const selectedQuestions = shuffled.slice(0, 10);
 
@@ -68,11 +79,11 @@ const Questionaire: React.FC = () => {
   };
 
   const getAgeGroup = (age: string): string => {
-    if (age == 'less than 12 years old') return '<12';
-    if (age == '12 to 25 years old') return '12-25';
-    if (age == '26 to 40 years old') return '26-40';
-    if (age == '41 to 55 years old') return '41-60';
-    return '>60';
+    if (age === 'less than 12 years old') return '<12';
+    if (age === '12 to 25 years old') return '12-25';
+    if (age === '26 to 40 years old') return '26-40';
+    if (age === '41 to 55 years old') return '41-55';
+    return '>55';
   };
 
   const handleAnswerOptionClick = (selectedAnswer: string) => {
@@ -81,12 +92,13 @@ const Questionaire: React.FC = () => {
     }
 
     const nextQuestion = currentQuestion + 1;
-
     if (nextQuestion < filteredQuestions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
-      setShowText(score === filteredQuestions.length - 1);
+      if (score === filteredQuestions.length - 1) {
+        setShowText(true);
+      }
     }
   };
 
@@ -99,36 +111,39 @@ const Questionaire: React.FC = () => {
       <Grid container spacing={3}>
         {showScore ? (
           <Grid item xs={12}>
-            <Typography variant="h6" style={{ color: "black" }}>
-              You scored {score} out of {filteredQuestions.length}
-            </Typography>
-            {showText && (
+            <Paper style={{ padding: '20px' }}>
               <Typography variant="h6" style={{ color: "black" }}>
-                Congratulations! You got all the answers correct!
+                You scored {score} out of {filteredQuestions.length}
               </Typography>
-            )}
+              {showText && (
+                <Typography variant="h6" style={{ color: "black" }}>
+                  Congratulations! You got all the answers correct!
+                </Typography>
+              )}
+            </Paper>
           </Grid>
         ) : (
-          filteredQuestions.length > 0 && (
+          <>
             <Grid item xs={12}>
               <Paper style={{ padding: '20px' }}>
                 <Typography variant="h6" style={{ color: "black" }}>
-                  {filteredQuestions[currentQuestion].title}
+                  {filteredQuestions[currentQuestion]?.title}
                 </Typography>
-                <div>
-                  {Object.entries(filteredQuestions[currentQuestion].options).map(([key, option]) => (
+                {filteredQuestions[currentQuestion]?.options &&
+                  Object.keys(filteredQuestions[currentQuestion].options).map((key) => (
                     <Button
                       key={key}
                       onClick={() => handleAnswerOptionClick(key)}
-                      style={{ display: 'block', margin: '10px 0' }}
+                      variant="contained"
+                      color="primary"
+                      style={{ margin: '5px' }}
                     >
-                      {option}
+                      {filteredQuestions[currentQuestion].options[key]}
                     </Button>
                   ))}
-                </div>
               </Paper>
             </Grid>
-          )
+          </>
         )}
       </Grid>
     </Container>
@@ -147,15 +162,16 @@ export default Questionaire;
 
 
 
-
 // import React, { useState, useEffect } from 'react';
-// import { Container, Typography, Grid, Paper } from '@mui/material';
+// import { Container, Typography, Grid, Paper, Button } from '@mui/material';
 // import { useAuth } from "../context/AuthContext";
+// // import {getAllUsers} from "../controllers/user-controllers.js";
+// //import User from "../models/User.js";
 
 // interface Question {
 //   title: string;
 //   options: { [key: string]: string };
-//   answer: string;
+//   answer: string; // The correct answer choice number as a string
 //   flags: {
 //     gender: string;
 //     country: string;
@@ -166,11 +182,11 @@ export default Questionaire;
 // const Questionaire: React.FC = () => {
 //   const [questions, setQuestions] = useState<Question[]>([]);
 //   const [filteredQuestions, setFilteredQuestions] = useState<Question[]>([]);
+//   const [score, setScore] = useState(0);
+//   const [showScore, setShowScore] = useState(false);
+//   const [showText, setShowText] = useState(false);
+//   const [currentQuestion, setCurrentQuestion] = useState(0);
 //   const auth = useAuth();
-//   // if (auth?.user){
-//   //   const userGender = auth.user.gender;
-//   //   const userAge = auth.user.age;
-//   // };
 
 //   useEffect(() => {
 //     const loadQuestions = async () => {
@@ -199,28 +215,24 @@ export default Questionaire;
 //     }
 
 //     console.log('User data:', auth?.user); // Log user data to debug
+//     console.log('User data:', auth?.user.age); // Log user data to debug
 
-//     const filtered = questions.filter((question) => {
-//       // if(auth?.user){
-//       //   console.log(auth.user.age);
-//       //   const ageGroup = getAgeGroup(auth.user.age);
-//       // return (
-//       //   (question.flags.gender === auth.user.gender || question.flags.gender === 'Neutral') &&
-//       //   question.flags.age.includes(ageGroup)
-//       // );
-//       // }
+//     const filtered = questions.filter(async (question) => {
 
 //       //const ageGroup = getAgeGroup(auth?.user?.age ?? '');
-//       const ageGroup = getAgeGroup("12 to 25 years old");
+//       // const ageGroup = getAgeGroup(auth?.user.age);
+//       // const ageGroup = getAgeGroup("12 to 25 years old");
 //       // const userGender = auth?.user?.gender ?? '';
-//       const userGender = "Female";
+//       //const userGender = "Female";
+//       const { gender, age } = auth.user;
+//       const ageGroup = getAgeGroup(age);
+      
 //       return (
-//         (question.flags.gender === userGender || question.flags.gender === 'Neutral') &&
+//         (question.flags.gender === gender || question.flags.gender === 'Neutral') &&
 //         question.flags.age.includes(ageGroup)
 //       );
 //     });
 
-//     // Shuffle the filtered questions and pick up to 10
 //     const shuffled = filtered.sort(() => 0.5 - Math.random());
 //     const selectedQuestions = shuffled.slice(0, 10);
 
@@ -235,6 +247,21 @@ export default Questionaire;
 //     return '>60';
 //   };
 
+//   const handleAnswerOptionClick = (selectedAnswer: string) => {
+//     if (selectedAnswer === filteredQuestions[currentQuestion].answer) {
+//       setScore(score + 1);
+//     }
+
+//     const nextQuestion = currentQuestion + 1;
+
+//     if (nextQuestion < filteredQuestions.length) {
+//       setCurrentQuestion(nextQuestion);
+//     } else {
+//       setShowScore(true);
+//       setShowText(score === filteredQuestions.length - 1);
+//     }
+//   };
+
 //   return (
 //     <Container maxWidth="md" style={{ padding: '20px' }}>
 //       <Typography variant="h4" style={{ color: "black" }} gutterBottom>
@@ -242,23 +269,38 @@ export default Questionaire;
 //       </Typography>
 
 //       <Grid container spacing={3}>
-//         {filteredQuestions.length > 0 ? (
-//           filteredQuestions.map((question, index) => (
-//             <Grid item xs={12} key={index}>
+//         {showScore ? (
+//           <Grid item xs={12}>
+//             <Typography variant="h6" style={{ color: "black" }}>
+//               You scored {score} out of {filteredQuestions.length}
+//             </Typography>
+//             {showText && (
+//               <Typography variant="h6" style={{ color: "black" }}>
+//                 Congratulations! You got all the answers correct!
+//               </Typography>
+//             )}
+//           </Grid>
+//         ) : (
+//           filteredQuestions.length > 0 && (
+//             <Grid item xs={12}>
 //               <Paper style={{ padding: '20px' }}>
-//                 <Typography variant="h6" style={{ color: "black" }}>{question.title}</Typography>
-//                 {Object.keys(question.options).map((key) => (
-//                   <Typography key={key} style={{ color: "black" }}>
-//                     {key}: {question.options[key]}
-//                   </Typography>
-//                 ))}
+//                 <Typography variant="h6" style={{ color: "black" }}>
+//                   {filteredQuestions[currentQuestion].title}
+//                 </Typography>
+//                 <div>
+//                   {Object.entries(filteredQuestions[currentQuestion].options).map(([key, option]) => (
+//                     <Button
+//                       key={key}
+//                       onClick={() => handleAnswerOptionClick(key)}
+//                       style={{ display: 'block', margin: '10px 0', borderRadius: "5px" }}
+//                     >
+//                       {option}
+//                     </Button>
+//                   ))}
+//                 </div>
 //               </Paper>
 //             </Grid>
-//           ))
-//         ) : (
-//           <Grid item xs={12}>
-//             <Typography style={{ color: "black" }}>No questions match your criteria.</Typography>
-//           </Grid>
+//           )
 //         )}
 //       </Grid>
 //     </Container>
@@ -266,6 +308,7 @@ export default Questionaire;
 // };
 
 // export default Questionaire;
+
 
 
 
