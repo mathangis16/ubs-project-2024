@@ -180,15 +180,14 @@ const ForumUser = () => {
   };
 
   return (
-    <main className="home">
-      <h2 className="homeTitle">Reply to a Thread!</h2>
-      <div className="thread__container">
+    <main className="forum">
+      <h2 className="forum-title">Reply to a Thread!</h2>
+      <div className="forum-container">
         {threadList.map((thread) => (
-          <div className="thread__item" key={thread.id}>
-            <p>{thread.title}</p>
-            <div className="react__container">
-              <div className="comments__container">
-                <svg
+          <div className="forum-thread" key={thread.id}>
+            <div className="thread-title">
+              <h3>{thread.title}</h3>
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -202,12 +201,14 @@ const ForumUser = () => {
                   />
                 </svg>
                 <p style={{ color: "#434242" }}>{thread.replies.length}</p>
-              </div>
+              {/* <button onClick={() => setSelectedThreadId(thread.id)}>
+                Show Replies ({thread.replies.length})
+              </button> */}
             </div>
             {selectedThreadId === thread.id && (
-              <div className="reply__section">
-                <form onSubmit={(e) => handleAddReply(e, thread.id)}>
-                  <label htmlFor="reply">Reply to the thread</label>
+              <>
+                <form className="reply-form" onSubmit={(e) => handleAddReply(e, thread.id)}>
+                  <label htmlFor="reply">Enter reply here</label>
                   <textarea
                     rows={5}
                     value={reply}
@@ -215,21 +216,19 @@ const ForumUser = () => {
                     //@ts-ignore
                     type="text"
                     name="reply"
-                    className="modalInput"
+                    className="reply-input"
                   />
-                  <button className="modalBtn">SEND</button>
+                  <button type="submit" className="reply-button">SEND</button>
                 </form>
-                <div className="thread__container">
+                <div className="replies-container">
                   {thread.replies.map((reply, index) => (
-                    <div className="thread__item" key={index}>
+                    <div className="reply-item" key={index}>
                       <p>{reply.content}</p>
-                      <div className="react__container">
-                        <p style={{ opacity: "0.5" }}>by {reply.user.name}</p> {/* Render user's name */}
-                      </div>
+                      <p className="reply-user">by {reply.user.name}</p>
                     </div>
                   ))}
                 </div>
-              </div>
+              </>
             )}
           </div>
         ))}
