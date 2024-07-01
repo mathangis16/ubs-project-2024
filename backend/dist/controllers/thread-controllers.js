@@ -18,13 +18,51 @@ export const createThread = async (req, res) => {
 };
 export const getAllThreads = async (req, res) => {
     try {
-        const threads = await Thread.find().populate('user');
+        const threads = await Thread.find().populate('user').populate('replies.user'); // Populate user in replies;
         res.status(200).json({ threads });
     }
     catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
 };
+// export const createReply = async (req: Request, res: Response) => {
+//   const { threadId, content, userName } = req.body;
+//   try {
+//     const user = await User.findOne({ name: userName });
+//     if (!user) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
+//     const thread = await Thread.findById(threadId);
+//     if (!thread) {
+//       return res.status(404).json({ message: 'Thread not found' });
+//     }
+//     const newReply = {
+//       user: user._id,
+//       content,
+//     };
+//     thread.replies.push(newReply);
+//     await thread.save();
+//     const populatedThread = await Thread.findById(threadId).populate('user').populate('replies.user');
+//     //console.log(populatedThread);
+//     res.status(201).json({ message: 'Reply added successfully', thread: populatedThread });
+//   } catch (error) {
+//     console.error('Error in creating reply:', error);
+//     res.status(500).json({ message: 'Server error' });
+//   }
+// };
+// export const getAllReplies = async (req: Request, res: Response) => {
+//   const { threadId } = req.params;
+//   try {
+//     const thread = await Thread.findById(threadId).populate('replies.user');
+//     if (!thread) {
+//       return res.status(404).json({ message: 'Thread not found' });
+//     }
+//     res.status(200).json({ replies: thread.replies });
+//   } catch (error) {
+//     console.error('Error in fetching replies:', error);
+//     res.status(500).json({ message: 'Server error' });
+//   }
+// };
 export const createReply = async (req, res) => {
     const { threadId, content, userName } = req.body;
     try {
@@ -32,7 +70,7 @@ export const createReply = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
-        const thread = await Thread.findById(threadId);
+        const thread = await Thread.findOne({ id: threadId });
         if (!thread) {
             return res.status(404).json({ message: 'Thread not found' });
         }
@@ -42,23 +80,25 @@ export const createReply = async (req, res) => {
         };
         thread.replies.push(newReply);
         await thread.save();
-        const populatedThread = await Thread.findById(threadId).populate('user').populate('replies.user');
+        const populatedThread = await Thread.findOne({ id: threadId }).populate('user').populate('replies.user');
         res.status(201).json({ message: 'Reply added successfully', thread: populatedThread });
     }
     catch (error) {
+        console.error('Error in creating reply:', error);
         res.status(500).json({ message: 'Server error' });
     }
 };
 export const getAllReplies = async (req, res) => {
     const { threadId } = req.params;
     try {
-        const thread = await Thread.findById(threadId).populate('replies.user');
+        const thread = await Thread.findOne({ id: threadId }).populate('replies.user');
         if (!thread) {
             return res.status(404).json({ message: 'Thread not found' });
         }
         res.status(200).json({ replies: thread.replies });
     }
     catch (error) {
+        console.error('Error in fetching replies:', error);
         res.status(500).json({ message: 'Server error' });
     }
 };

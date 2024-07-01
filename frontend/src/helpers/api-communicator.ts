@@ -137,6 +137,32 @@ export const getAllThreads = async () => {
   }
 };
 
+// export const createReply = async (threadId: string, content: string, userName: string) => {
+//   try {
+//     const res = await axios.post("forumUser/create/reply", { threadId, content, userName });
+//     if (res.status !== 201) {
+//       throw new Error('Unable to create reply');
+//     }
+//     return res.data;
+//   } catch (error) {
+//     console.error('Error in creating reply:', error);
+//     throw error;
+//   }
+// };
+
+// export const getAllReplies = async (threadId: string) => {
+//   try {
+//     const res = await axios.get("forumUser/thread/${threadId}/replies");
+//     if (res.status !== 200) {
+//       throw new Error('Failed to fetch replies');
+//     }
+//     return res.data;
+//   } catch (error) {
+//     console.error('Error in fetching replies:', error);
+//     throw error;
+//   }
+// };
+
 export const createReply = async (threadId: string, content: string, userName: string) => {
   try {
     const res = await axios.post("forumUser/create/reply", { threadId, content, userName });
@@ -152,7 +178,7 @@ export const createReply = async (threadId: string, content: string, userName: s
 
 export const getAllReplies = async (threadId: string) => {
   try {
-    const res = await axios.get("forumUser/thread/${threadId}/replies");
+    const res = await axios.get(`forumUser/thread/${threadId}/replies`);
     if (res.status !== 200) {
       throw new Error('Failed to fetch replies');
     }

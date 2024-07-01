@@ -306,6 +306,7 @@ import { IoMdSend } from "react-icons/io";
 import { useAuth } from "../context/AuthContext";
 import { createThread, getAllThreads } from "../helpers/api-communicator";
 import toast from "react-hot-toast";
+import { PopupButton, PopupWidget } from "react-calendly";
 
 type Thread = {
   title: string;
@@ -386,6 +387,25 @@ const DiscussionForum = () => {
 						</div>
 					))}
 				</div>
+        <PopupButton
+        url="https://calendly.com/mathangis16"
+        /*
+         * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+         * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+         */
+        //@ts-ignore
+        rootElement={document.getElementById("root")}
+        text="Click here to schedule an event!"
+        styles={{
+          border: 'none',
+          borderRadius: '5px',
+          backgroundColor: '#51538f',
+          color: 'white',
+          padding: '10px 20px',
+          fontSize: '20px',
+          cursor: 'pointer',
+        }}
+      />
 			</main>
 		</>
   );

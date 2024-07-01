@@ -75,6 +75,7 @@ a {
 }
 
 .replies,
+.home,
 .modal {
 	display: flex;
 	width: 100%;
@@ -89,12 +90,12 @@ a {
 .repliesTitle {
 	margin-bottom: 30px;
 }
-/* .registerForm,
+.registerForm,
 .loginForm {
 	width: 80%;
 	display: flex;
 	flex-direction: column;
-} */
+}
 
 .homeBtn,
 .modalBtn {
@@ -206,6 +207,7 @@ a {
 	cursor: pointer;
 	border-radius: 3px;
 }
+
 
 
 
