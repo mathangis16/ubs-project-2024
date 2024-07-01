@@ -53,7 +53,7 @@ html,body{
 }
 
 .Login {
-	background-image: "../public/login_bg.jpg" !important;
+	background-image: "login_bg.jpg" !important;
 	font-family: "Space Grotesk" !important;
 	z-index: '100px';
 }

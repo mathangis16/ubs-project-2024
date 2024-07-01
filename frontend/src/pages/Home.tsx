@@ -75,15 +75,16 @@ const Home = () => {
         marginTop="0px"
       >
       <Box mx={2}>
-        <img src="hands_small.png" alt="hands" style={{ width: '400px', height: 'auto'}} />
+        <img src="hands_small.png" alt="hands" style={{ width: '400px', height: 'auto', paddingLeft: '10px'}} />
       </Box>
       <Box mx={2}>
         <p style={{ fontSize:'22px', padding: '40px', paddingRight: '50px', paddingLeft: '0px' }}>Over the last few decades, the world has taken significant strides in ensuring equality, women empowerment etc. 
           Although we should appreciate the progress made, it is important that we acknowledge that people still face issues in this space. 
           The problem lies in the fact that not many people are confident enough to seek support, help or dont think its a problem that is worth escalating. 
           Furthermore, people might notice other people being victims of gender bias / inequality but do not feel the need to take action on it since they are not the ones on the receiving end. 
-          The problem lies in the fact that there is no platform / product that people can use where they can learn, track, escalate (anonymously or not) and seek moral support in situations that might arise.</p>
-        <p style={{ fontSize:'22px', padding: '20px' }}>To tackle all this we have Tobias</p>
+          The problem lies in the fact that there is no platform / product that people can use where they can learn, track, escalate (anonymously or not) and seek moral support in situations that might arise.
+          To tackle all this we have Tobias!</p>
+        {/* <p style={{ fontSize:'22px', padding: '20px' }}>To tackle all this we have Tobias</p> */}
       </Box>
       </Box>
         {/*<Box sx={{ display: "flex", mx: "auto", position: "absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"screen"}}>

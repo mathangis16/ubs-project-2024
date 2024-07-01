@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Card, CardContent, Typography, Grid } from '@mui/material';
+import { Box, Card, CardContent, Typography, Grid, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 interface Data {
   [key: string]: string;
@@ -75,11 +76,31 @@ const data: Data = {
 };
 
 const Dictionary = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/forumUser'); 
+  };
     return (
         <Box sx={{ flexGrow: 1, p: 3 }}>
           <Typography color="black" variant="h3" gutterBottom>
             Gender Identities Glossary
           </Typography>
+          <Button
+      variant="contained"
+      color="primary"
+      onClick={handleClick}
+      sx={{
+        px: 2,
+        py: 1,
+        mt: 2,
+        borderRadius: 2,
+        marginBottom:2,
+        display:'flex',
+      }}
+    >
+      Discussion Forum
+    </Button>
           <Grid container spacing={3}>
             {Object.entries(data).map(([title, description]) => (
               <Grid item xs={12} sm={6} md={4} key={title}>

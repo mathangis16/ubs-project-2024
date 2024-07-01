@@ -32,7 +32,7 @@ const Header = () => {
                 bg="#f99417"
                 textColor="white"
                 to="/"
-                text="logout"
+                text="Logout"
                 onClick={auth.logout}
               />
             </>

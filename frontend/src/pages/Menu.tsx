@@ -9,19 +9,19 @@ const images = [
   {
     src: 'chatbot_2.png',
     title: 'Chatbot',
-    width: '40%', // Adjust width for better alignment
+    width: '30%', // Adjust width for better alignment
     link: '/chat',
   },
   {
     src: 'discussion_forum_2.png',
     title: 'Discussion Forum',
-    width: '40%', // Adjust width for better alignment
+    width: '30%', // Adjust width for better alignment
     link: '/forumUser',
   },
   {
     src: 'questionaire_2.jpeg',
     title: 'Questionaire',
-    width: '40%', // Adjust width for better alignment
+    width: '30%', // Adjust width for better alignment
     link: '/questionaire',
   },
 ];
@@ -96,13 +96,13 @@ const Menu = () => {
 
   return (
     <Box width={"100%"} height={"100%"} sx={{ textAlign: 'center', marginBottom: '100px', padding: '0px 10px' }}>
-      <Box><h2 style={{ fontSize: '50px' }}>Let's Explore!</h2></Box>
+      <Box><h2 style={{ fontSize: '50px', marginTop: '20px', marginBottom:'20px' }}>Let's Explore!</h2></Box>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: 2, // Add spacing between buttons
+          //gap: 2, // Add spacing between buttons
           marginRight:"20px",
         }}
       >
