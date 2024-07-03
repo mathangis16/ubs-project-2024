@@ -1,10 +1,17 @@
-import { Box, useMediaQuery, useTheme, Typography } from "@mui/material";
+import { Box, useMediaQuery, useTheme, Typography, Button } from "@mui/material";
 import React from "react";
 import TypingAnim from "../components/typer/TypingAnim";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const theme = useTheme();
   const isBelowMd = useMediaQuery(theme.breakpoints.down("md"));
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/login'); 
+  };
   return (
     <Box width={"100%"} height={"100%"}>
       <Box
@@ -20,7 +27,7 @@ const Home = () => {
         <Box>
           <TypingAnim />
         </Box>
-        <Box><h1 style={{ textAlign: 'center', fontSize:'50px',marginBottom:'0px' }}> Tobias </h1></Box>
+        <Box><h1 style={{ textAlign: 'center', fontSize:'50px',marginBottom:'0px', fontStyle:'oblique' }}> Tobias </h1></Box>
         <Box
           sx={{
             width: "100%",
@@ -87,6 +94,24 @@ const Home = () => {
         {/* <p style={{ fontSize:'22px', padding: '20px' }}>To tackle all this we have Tobias</p> */}
       </Box>
       </Box>
+      <Box><Button
+            variant="contained"
+            color="primary"
+            onClick={handleClick}
+            sx={{
+              px: 2,
+              py: 1,
+              mt: 2,
+              borderRadius: 2,
+              marginBottom:2,
+              marginTop:0,
+              fontSize:'30px',
+              backgroundColor:'#543d7b',
+              color:'#fff8ed'
+            }}
+          >
+            Let's Explore!
+        </Button></Box>
         {/*<Box sx={{ display: "flex", mx: "auto", position: "absolute", top:0, left:0, width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"screen"}}>
             <img
             className="moon"

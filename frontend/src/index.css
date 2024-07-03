@@ -27,6 +27,10 @@ html,body{
   border-color: white !important;
 }
 
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+	color: white !important;
+}
+
 .MuiTypography-root{
 	font-family: "Space Grotesk" !important;
 }
@@ -37,6 +41,10 @@ html,body{
 
 .css-1j0kfqr-MuiButtonBase-root-MuiMenuItem-root {
     background-color: #543d7b !important;
+}
+
+.css-bhsra9-MuiButtonBase-root-MuiMenuItem-root {
+	color: black !important;
 }
 
 .diversity {
@@ -279,11 +287,13 @@ a {
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+	background-color:#51538f;
+	color:white;
   }
   
   .reply-user {
 	font-size: 14px;
-	color: #666;
+	color: rgb(211, 207, 207);
 	margin-top: 5px;
   }
 

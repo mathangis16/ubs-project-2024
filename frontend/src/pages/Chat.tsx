@@ -73,11 +73,12 @@ const Chat = () => {
                 <Box sx={{
                     display:"flex", 
                     width:"100%", 
-                    height:"60vh",
+                    height:"70vh",
                     bgcolor: "rgb(17,29,39)",
                     borderRadius:5,
                     flexDirection:"column",
                     mx:3,
+                    marginTop:"80px",
                     }}
                 >
                     <Avatar
@@ -92,11 +93,14 @@ const Chat = () => {
                         {auth?.user?.name[0]}
                         {auth?.user?.name.split(" ")[1][0]}
                     </Avatar>
-                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk"}}>
+                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", fontSize:"20px"}}>
                         Hi I am chat Tobias
                     </Typography>
-                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", my:4, p:3}}>
-                        Are you facing troubles at your workplace and dont know who to talk to well I'm here for you!
+                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", my:5, p:2,fontStyle:"oblique"}}>
+                        Are you facing troubles at your workplace and dont know who to talk to?
+                    </Typography>
+                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk",p:2, fontSize:"20px"}}>
+                        Well I'm here for you!
                     </Typography>
                     <Button
                         onClick={handleDeleteChats}

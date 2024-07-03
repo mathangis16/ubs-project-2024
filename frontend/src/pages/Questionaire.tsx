@@ -110,10 +110,10 @@ const Questionaire: React.FC = () => {
 
   return (
     <Container maxWidth="md" style={{ padding: '20px' }}>
-      <Typography variant="h4" style={{ color: "black", paddingTop:'20px' }} gutterBottom>
-        Welcome! Let's test your knowledge
+      <Typography variant="h3" style={{ color: "black", paddingTop:'20px' }} gutterBottom>
+        Welcome to Tobias! First let's test your knowledge!
       </Typography>
-      <Typography variant="h6" style={{ color: "black", paddingTop:'20px', paddingBottom:'20px' }} gutterBottom> Answer these 10 custom made questions and see your score at the end!</Typography>
+      <Typography variant="h5" style={{ color: "black", paddingTop:'20px', paddingBottom:'20px' }} gutterBottom> Answer these 10 custom made questions and see your score at the end!</Typography>
       <Grid container spacing={3}>
         {showScore ? (
           <Grid item xs={12}>
@@ -136,9 +136,12 @@ const Questionaire: React.FC = () => {
         py: 1,
         mt: 2,
         borderRadius: 2,
+        fontSize:'20px',
+        backgroundColor:'#543d7b',
+        color:'#fff8ed'
       }}
     >
-      Click here to learn more about the different gender identities!
+      Learn more about the different gender identities!
     </Button>
           </Grid>
         ) : (

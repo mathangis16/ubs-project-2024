@@ -120,8 +120,10 @@
 
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { getAllThreads, createReply, getAllReplies } from "../helpers/api-communicator";
+import { getAllThreads, createReply, getAllReplies, likeThread } from "../helpers/api-communicator";
 import toast from "react-hot-toast";
+import {Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 type Reply = {
   content: string;
@@ -132,6 +134,7 @@ type Thread = {
   title: string;
   id: string;
   replies: Reply[];
+  likes: { user: string }[]; // Assuming likes is an array of user IDs
 };
 
 const ForumUser = () => {
@@ -179,6 +182,32 @@ const ForumUser = () => {
     }
   };
 
+  const handleLikeThread = async (threadId: string) => {
+    try {
+      const username = auth?.user?.name;
+      if (username) {
+        const response = await likeThread(threadId, username);
+        setThreadList((prevThreads) =>
+          prevThreads.map((thread) =>
+            thread.id === threadId ? { ...thread, likes: [...thread.likes, { user: username }] } : thread
+          )
+        );
+        toast.success("Thread liked successfully");
+      } else {
+        toast.error("User not found");
+      }
+    } catch (error) {
+      console.error("Failed to like thread:", error);
+      toast.error("Failed to like thread");
+    }
+  };
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/chat'); 
+  };
+
   return (
     <main className="forum">
       <h2 className="forum-title">Reply to a Thread!</h2>
@@ -187,7 +216,8 @@ const ForumUser = () => {
           <div className="forum-thread" key={thread.id}>
             <div className="thread-title">
               <h3>{thread.title}</h3>
-              <svg
+              <div className="thread-actions">
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -201,9 +231,10 @@ const ForumUser = () => {
                   />
                 </svg>
                 <p style={{ color: "#434242" }}>{thread.replies.length}</p>
-              {/* <button onClick={() => setSelectedThreadId(thread.id)}>
-                Show Replies ({thread.replies.length})
-              </button> */}
+                <button className="like-button" onClick={() => handleLikeThread(thread.id)}>
+                  👍 {thread.likes.length}
+                </button>
+              </div>
             </div>
             {selectedThreadId === thread.id && (
               <>
@@ -233,11 +264,33 @@ const ForumUser = () => {
           </div>
         ))}
       </div>
+      <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClick}
+            sx={{
+              px: 2,
+              py: 1,
+              mt: 2,
+              borderRadius: 2,
+              marginBottom:2,
+              fontSize:'20px',
+              backgroundColor:'#543d7b',
+              color:'#fff8ed',
+              position:'fixed',
+              bottom: '35px',
+              right: "30px",
+            }}
+          >
+            Chatbot
+        </Button>
     </main>
   );
 };
 
 export default ForumUser;
+
+
 
 
 

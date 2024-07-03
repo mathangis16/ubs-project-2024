@@ -102,6 +102,29 @@ export const getAllReplies = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+export const likeThread = async (req, res) => {
+    const { threadId, username } = req.body;
+    try {
+        const thread = await Thread.findById(threadId);
+        if (!thread) {
+            return res.status(404).json({ message: 'Thread not found' });
+        }
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        const alreadyLiked = thread.likes.some((like) => like.user.toString() === user._id.toString());
+        if (alreadyLiked) {
+            return res.status(400).json({ message: 'User already liked this thread' });
+        }
+        thread.likes.push({ user: user._id });
+        await thread.save();
+        res.status(200).json({ message: 'Thread liked successfully', likes: thread.likes.length });
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+};
 // import { Request, Response } from 'express';
 // import Thread, { ThreadDocument } from '../models/threadModel.js'; // Adjust the path as necessary
 // export const createThread = async (req: Request, res: Response): Promise<void> => {

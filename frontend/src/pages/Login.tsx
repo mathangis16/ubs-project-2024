@@ -83,8 +83,8 @@ const Login = () => {
               Login
             </Typography>
             <Typography textAlign="center" font-family="Space Grotesk">Welcome back!</Typography>
-            <CustomizedInput type="email" name="email" label="Email" text-color="black"/>
-            <CustomizedInput type="password" name="password" label="Password" text-color="black" />
+            <CustomizedInput type="email" name="email" label="Email" text-color="white"/>
+            <CustomizedInput type="password" name="password" label="Password" text-color="white" />
             <Button
               type="submit"
               sx={{

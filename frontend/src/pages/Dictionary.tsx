@@ -83,24 +83,29 @@ const Dictionary = () => {
   };
     return (
         <Box sx={{ flexGrow: 1, p: 3 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClick}
+            sx={{
+              px: 2,
+              py: 1,
+              mt: 2,
+              borderRadius: 2,
+              marginBottom:2,
+              fontSize:'20px',
+              backgroundColor:'#543d7b',
+              color:'#fff8ed',
+              position:'fixed',
+              top: '65px',
+              right: "30px",
+            }}
+          >
+            Discussion Forum
+        </Button>
           <Typography color="black" variant="h3" gutterBottom>
             Gender Identities Glossary
           </Typography>
-          <Button
-      variant="contained"
-      color="primary"
-      onClick={handleClick}
-      sx={{
-        px: 2,
-        py: 1,
-        mt: 2,
-        borderRadius: 2,
-        marginBottom:2,
-        display:'flex',
-      }}
-    >
-      Discussion Forum
-    </Button>
           <Grid container spacing={3}>
             {Object.entries(data).map(([title, description]) => (
               <Grid item xs={12} sm={6} md={4} key={title}>

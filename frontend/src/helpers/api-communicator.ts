@@ -188,3 +188,16 @@ export const getAllReplies = async (threadId: string) => {
     throw error;
   }
 };
+
+export const likeThread = async (threadId: string, username: string) => {
+  try {
+    const res = await axios.post("/forumUser/thread/like", { threadId, username });
+    if (res.status !== 200) {
+      throw new Error('Unable to like thread');
+    }
+    return res.data;
+  } catch (error) {
+    console.error('Error in liking thread:', error);
+    throw error;
+  }
+};
