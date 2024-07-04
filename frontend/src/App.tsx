@@ -10,6 +10,7 @@ import ForumUser from "./pages/ForumUser";
 import Questionaire from "./pages/Questionaire";
 import Dictionary from "./pages/Dictionary";
 import Menu from "./pages/Menu";
+import BeforeQuestions from "./pages/BeforeQuestions";
 //import forum_app from "../components/forum/forum_app.js";
 import NotFound from "./pages/NotFound";
 import { useAuth } from "./context/AuthContext";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/forumUser" element={<ForumUser />} />
         {/* <Route path="/:threadId/replies" element={<RepliesUser />} /> */}
         <Route path="/questionaire" element={<Questionaire />} />
+        <Route path="/beforeQuestions" element={<BeforeQuestions />} />
         <Route path="/dictionary" element={<Dictionary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

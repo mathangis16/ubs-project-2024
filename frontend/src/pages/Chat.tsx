@@ -73,7 +73,7 @@ const Chat = () => {
                 <Box sx={{
                     display:"flex", 
                     width:"100%", 
-                    height:"70vh",
+                    height:"100%",
                     bgcolor: "rgb(17,29,39)",
                     borderRadius:5,
                     flexDirection:"column",
@@ -94,7 +94,7 @@ const Chat = () => {
                         {auth?.user?.name.split(" ")[1][0]}
                     </Avatar>
                     <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", fontSize:"20px"}}>
-                        Hi I am chat Tobias
+                        Hi I am Tobias
                     </Typography>
                     <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", my:5, p:2,fontStyle:"oblique"}}>
                         Are you facing troubles at your workplace and dont know who to talk to?
@@ -121,11 +121,11 @@ const Chat = () => {
                 </Box>
             </Box>
             <Box sx={{display:"flex", flex:{md:0.8, xs:1, sm:1}, flexDirection:"column", px:3,}}>
-                <Typography
+                {/* <Typography
                     sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",fontFamily:"Space Grotesk"}}
                 >
                     ChatBot
-                </Typography>
+                </Typography> */}
                 <Box
                     sx={{
                         width:"100%",

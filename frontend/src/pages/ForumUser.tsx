@@ -210,7 +210,7 @@ const ForumUser = () => {
 
   return (
     <main className="forum">
-      <h2 className="forum-title">Reply to a Thread!</h2>
+      <h2 className="forum-title">Share your thoughts!</h2>
       <div className="forum-container">
         {threadList.map((thread) => (
           <div className="forum-thread" key={thread.id}>

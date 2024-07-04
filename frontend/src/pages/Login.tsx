@@ -31,7 +31,7 @@ const Login = () => {
       if (auth.user.isAdmin) {
       navigate("/DiscussionForum");
       } else {
-      navigate("/questionaire");
+      navigate("/beforeQuestions");
       }
       }
       }, [auth]);
