@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container, Typography, Grid, Paper, Button } from '@mui/material';
+import { useNavigate, Link } from 'react-router-dom';
+import { Container, Typography, Grid, Paper, Button, Box } from '@mui/material';
 import { useAuth } from "../context/AuthContext";
 import { getUserDetails } from "../helpers/api-communicator"; // Make sure this function is implemented
 
@@ -109,11 +109,11 @@ const Questionaire: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="md" style={{ padding: '20px' }}>
-      <Typography variant="h3" style={{ color: "black", paddingTop:'20px' }} gutterBottom>
+    <Container maxWidth="md" style={{ padding: '20px', marginTop: '60px' }}>
+      {/* <Typography variant="h3" style={{ color: "black", paddingTop:'20px' }} gutterBottom>
         Welcome to Tobias! First let's test your knowledge!
       </Typography>
-      <Typography variant="h5" style={{ color: "black", paddingTop:'20px', paddingBottom:'20px' }} gutterBottom> Answer these 10 custom made questions and see your score at the end!</Typography>
+      <Typography variant="h5" style={{ color: "black", paddingTop:'20px', paddingBottom:'20px' }} gutterBottom> Answer these 10 custom made questions and see your score at the end!</Typography> */}
       <Grid container spacing={3}>
         {showScore ? (
           <Grid item xs={12}>
@@ -127,42 +127,45 @@ const Questionaire: React.FC = () => {
                 </Typography>
               )}
             </Paper>
-            <Button
-      variant="contained"
-      color="primary"
-      onClick={handleClick}
-      sx={{
-        px: 2,
-        py: 1,
-        mt: 2,
-        borderRadius: 2,
-        fontSize:'20px',
-        backgroundColor:'#543d7b',
-        color:'#fff8ed'
-      }}
-    >
-      Learn more about the different gender identities!
-    </Button>
+            <Typography textAlign="center" font-family="Space Grotesk" marginTop="10px" color="black" fontSize={"20px"}> Click <Link to="/dictionary" style={{ color: 'black', textDecoration: 'underline' }}>here</Link> to learn more about the different gender identities</Typography>
+            {/* <Button
+              variant="contained"
+              color="primary"
+              onClick={handleClick}
+              sx={{
+                px: 2,
+                py: 1,
+                mt: 2,
+                borderRadius: 2,
+                fontSize:'20px',
+                backgroundColor:'#543d7b',
+                color:'#fff8ed'
+              }}
+            >
+              Learn more about the different gender identities!
+            </Button> */}
           </Grid>
         ) : (
           <>
             <Grid item xs={12}>
               <Paper style={{ padding: '20px' }}>
-                <Typography variant="h6" style={{ color: "black" }}>
+                <Typography variant="h5" style={{ color: "black" }}>
                   {filteredQuestions[currentQuestion]?.title}
                 </Typography>
-                {filteredQuestions[currentQuestion]?.options &&
-                  Object.keys(filteredQuestions[currentQuestion].options).map((key) => (
-                    <Button
-                      key={key}
-                      onClick={() => handleAnswerOptionClick(key)}
-                      variant="contained"
-                      color="primary"
-                      style={{ margin: '5px' }}
-                    >
-                      {filteredQuestions[currentQuestion].options[key]}
-                    </Button>
-                  ))}
+                <Box display="flex" flexDirection="column" alignItems="flex-start" mt={2}>
+                  {filteredQuestions[currentQuestion]?.options &&
+                    Object.keys(filteredQuestions[currentQuestion].options).map((key) => (
+                      <Button
+                        key={key}
+                        onClick={() => handleAnswerOptionClick(key)}
+                        variant="contained"
+                        color="primary"
+                        style={{ marginBottom: '10px', textAlign: 'left', width: '100%', fontSize: '15px' }}
+                      >
+                        {filteredQuestions[currentQuestion].options[key]}
+                      </Button>
+                    ))}
+                </Box>
               </Paper>
             </Grid>
           </>

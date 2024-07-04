@@ -124,6 +124,7 @@ import { getAllThreads, createReply, getAllReplies, likeThread } from "../helper
 import toast from "react-hot-toast";
 import {Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+//import "chatbot_icon.png";
 
 type Reply = {
   content: string;
@@ -265,6 +266,26 @@ const ForumUser = () => {
         ))}
       </div>
       <Button
+      variant="contained"
+      color="primary"
+      onClick={handleClick}
+      sx={{
+        px: 2,
+        py: 1,
+        mt: 2,
+        borderRadius: 2,
+        marginBottom: 2,
+        backgroundColor: '#543d7b',
+        color: '#fff8ed',
+        position: 'fixed',
+        bottom: '35px',
+        right: '30px',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+      startIcon={<img src={"chatbot_icon.png"} alt="Chatbot" style={{ width: '40px' }} />}
+    />
+      {/* <Button
             variant="contained"
             color="primary"
             onClick={handleClick}
@@ -282,8 +303,8 @@ const ForumUser = () => {
               right: "30px",
             }}
           >
-            Chatbot
-        </Button>
+            Chatbot 
+        </Button> */}
     </main>
   );
 };

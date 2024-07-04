@@ -7,7 +7,7 @@ const ChatItem= ({content,role}:{content:string;role:"user"|"assistant";})=>{
     return role=== "assistant" ? (
         <Box sx={{display:"flex", p:2, bgcolor:"black", my:2, gap:2}}>
             <Avatar sx={{m1:"0"}}>
-                <img src="tobias.jpeg" alt="tobias" width={"30px"} />
+                <img src="tobias.jpeg" alt="tobias" width={"38px"} />
             </Avatar>
             <Box>
                 <Typography fontSize={"20px"} fontFamily={"Space Grotesk"}>{content}</Typography>
@@ -20,7 +20,7 @@ const ChatItem= ({content,role}:{content:string;role:"user"|"assistant";})=>{
                 {auth?.user?.name.split(" ")[1][0]}
             </Avatar>
             <Box>
-                <Typography fontSize={"20px"} fontFamily={"Space Grotesk"}>{content}</Typography>
+                <Typography fontSize={"20px"} fontFamily={"Space Grotesk"} textAlign={"right"}>{content}</Typography>
             </Box>
         </Box>
     );

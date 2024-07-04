@@ -7,7 +7,7 @@ html,body{
   /* background: rgb(242, 234, 234); */
   background: #fff8ed;
   /* background: #27272c; */
-  color:#543d7b;
+  color:#30448c;
   font-family: "Space Grotesk", serif; 
 }
 
@@ -86,6 +86,8 @@ input {
 a {
 	text-decoration: none;
 }
+
+/* For forum */
 
 .replies,
 .home,
@@ -306,10 +308,7 @@ a {
 	height: 20px;
   }
   
-
-
-
-  
+/* For menu in header */
 
   .relative {
 	position: relative;
@@ -500,6 +499,8 @@ a {
   .margin-left-2 {
 	margin-left: 0.5rem;
   }
+
+
   
 
 

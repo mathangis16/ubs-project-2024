@@ -289,7 +289,7 @@ const Signup = () => {
           boxShadow: "10px 10px 20px #000",
           borderRadius: "10px",
           border: "none",
-          backgroundColor: "#543d7b", // Set the form background color
+          backgroundColor: "#002a56", // Set the form background color
           color: "white", // Ensure text color is white for contrast
         }}
       >

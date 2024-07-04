@@ -60,7 +60,7 @@ const Login = () => {
             borderRadius: "10px",
             border: "none",
             // backgroundImage: "login_bg.jpg",
-            backgroundColor: "#543d7b", // Set the form background color
+            backgroundColor: "#002a56", // Set the form background color
             color: "white", // Ensure text color is white for contrast
           }}
         >
