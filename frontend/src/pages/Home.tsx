@@ -127,7 +127,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const TextParallaxContentExample = () => {
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div style={{ backgroundColor: "#fff8ed" }}>
       <TextParallaxContent
         imgUrl="image_people_final.png"
         subheading="To understand, minimize and uncover bias"
@@ -135,20 +135,6 @@ export const TextParallaxContentExample = () => {
       >
         <ExampleContent />
       </TextParallaxContent>
-      {/* <TextParallaxContent
-        imgUrl="https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        subheading="Quality"
-        heading="Never compromise."
-      >
-        <ExampleContent />
-      </TextParallaxContent>
-      <TextParallaxContent
-        imgUrl="https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=2416&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        subheading="Modern"
-        heading="Dress for the best."
-      >
-        <ExampleContent />
-      </TextParallaxContent> */}
     </div>
   );
 };
@@ -199,7 +185,6 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
         position: "sticky",
         overflow: "hidden",
         zIndex: 0,
-        //borderRadius: "1.5rem",
       }}
       ref={targetRef}
     >
@@ -259,75 +244,93 @@ const OverlayCopy = ({
   );
 };
 
-// const navigate = useNavigate();
+const ExampleContent = () => {
+  const navigate = useNavigate();
 
-//   const handleClick = () => {
-//     navigate('/login'); 
-//   };
+  const handleClick = () => {
+    navigate('/login'); 
+  };
 
-const ExampleContent = () => (
-  <div style={{
-    maxWidth: "1280px",
-    //margin: "0 auto",
-    padding: "3rem 1rem 6rem 1rem",
-    display: "grid",
-    gridTemplateColumns: "repeat(12, 1fr)",
-    gap: "2rem",
-  }}>
-    <h2 style={{
-      gridColumn: "span 5",
-      fontSize: "2rem",
-      fontWeight: "bold",
-      textAlign:"left"
+  return (
+    <div style={{
+      maxWidth: "1280px",
+      padding: "3rem 1rem 6rem 1rem",
+      display: "grid",
+      gridTemplateColumns: "repeat(12, 1fr)",
+      gap: "2rem",
     }}>
-      Diversity, equity, inclusion and belonging (DEIB) make up a framework designed to create a workplace that is fair and welcoming to employees of various backgrounds.
-    </h2>
-    <div style={{ gridColumn: "span 8" }}>
-      <p style={{
-        marginBottom: "1rem",
-        fontSize: "1.25rem",
-        color: "#4B5563",
-      }}>
-        Although we should appreciate the progress made, it is important that we acknowledge that people still face issues in this space. 
-        The problem lies in the fact that not many people are confident enough to seek support, help or dont think its a problem that is worth escalating. 
-        Furthermore, people might notice other people being victims of gender bias / inequality but do not feel the need to take action on it since they are not the ones on the receiving end. 
-        The problem lies in the fact that there is no platform / product that people can use where they can learn, track, escalate (anonymously or not) and seek moral support in situations that might arise.
-      </p>
-      <p style={{
-        marginBottom: "2rem",
-        fontSize: "1.25rem",
-        color: "#4B5563",
-      }}>
-        To tackle all this we have Tobias!
-      </p>
-      <button 
-      //onClick={handleClick}
-      style={{
-        width: "100%",
-        backgroundColor: "#111827",
-        color: "white",
-        padding: "1rem 2rem",
-        borderRadius: "0.5rem",
-        fontSize: "1.25rem",
-        transition: "background-color 0.3s",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = "#374151";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = "#111827";
-        }}
-      >
-        Let's Explore <FiArrowUpRight style={{ marginLeft: "0.5rem" }} />
-      </button>
+      <div style={{ gridColumn: "span 7" }}>
+        <h2 style={{
+          fontSize: "2rem",
+          fontWeight: "bold",
+          textAlign: "left",
+          marginLeft: "30px"
+        }}>
+          Diversity, equity, inclusion and belonging (DEIB) make up a framework designed to create a workplace that is fair and welcoming to employees of various backgrounds.
+        </h2>
+        <p style={{
+          marginBottom: "1rem",
+          fontSize: "1.25rem",
+          color: "black",
+          //color : "#5C4F9F",
+          marginLeft: "30px",
+          marginTop: "1rem"
+        }}>
+          Although we should appreciate the progress made, it is important that we acknowledge that people still face issues in this space. 
+          The problem lies in the fact that not many people are confident enough to seek support, help or don't think it's a problem that is worth escalating. 
+          Furthermore, people might notice other people being victims of gender bias / inequality but do not feel the need to take action on it since they are not the ones on the receiving end. 
+          The problem lies in the fact that there is no platform / product that people can use where they can learn, track, escalate (anonymously or not) and seek moral support in situations that might arise.
+        </p>
+        <p style={{
+          marginBottom: "2rem",
+          fontSize: "1.25rem",
+          //color: "#5C4F9F",
+          color: "black",
+          marginLeft: "30px"
+        }}>
+          To tackle all this we have Tobias!
+        </p>
+        <button 
+          onClick={handleClick}
+          style={{
+            width: "100%",
+            backgroundColor: "#111827",
+            //backgroundColor: "#855AAF",
+            color: "white",
+            padding: "1rem 2rem",
+            borderRadius: "0.5rem",
+            fontSize: "1.25rem",
+            transition: "background-color 0.3s",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "30px"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "#002a56";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "#111827";
+            // e.currentTarget.style.backgroundColor = "#855AAF";
+          }}
+        >
+          Let's Explore <FiArrowUpRight style={{ marginLeft: "0.5rem" }} />
+        </button>
+      </div>
+      <div style={{ gridColumn: "span 5" }}>
+        <img 
+          src="login_bg.jpg" 
+          alt="People" 
+          style={{ width: "140%", marginLeft: "20px", marginRight: "90px", marginTop: "30px", height:"auto" }}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default TextParallaxContentExample;
+
+
 
 
 

@@ -424,7 +424,7 @@ const Signup = () => {
               color: "white",
               ":hover": {
                 bgcolor: "white",
-                color: "#543d7b",
+                color: "#002a56",
               },
             }}
             endIcon={<IoIosLogIn />}

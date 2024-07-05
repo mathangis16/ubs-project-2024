@@ -275,7 +275,7 @@ const ForumUser = () => {
         mt: 2,
         borderRadius: 2,
         marginBottom: 2,
-        backgroundColor: '#543d7b',
+        backgroundColor: '#f99417',
         color: '#fff8ed',
         position: 'fixed',
         bottom: '35px',

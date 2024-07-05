@@ -155,7 +155,7 @@ const Header = () => {
     <AppBar position="static" style={{ backgroundColor: "#30448c", boxShadow: "none" }}>
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
         <Logo />
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
           {auth?.isLoggedIn ? (
             <>
               <FlyoutLink href="#" FlyoutContent={PricingContent}>

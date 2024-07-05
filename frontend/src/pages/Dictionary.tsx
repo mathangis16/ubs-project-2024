@@ -83,7 +83,7 @@ const Dictionary = () => {
   };
     return (
         <Box sx={{ flexGrow: 1, p: 3 }}>
-          <Button
+          {/* <Button
             variant="contained"
             color="primary"
             onClick={handleClick}
@@ -102,7 +102,7 @@ const Dictionary = () => {
             }}
           >
             Discussion Forum
-        </Button>
+        </Button> */}
           <Typography color="black" variant="h3" gutterBottom>
             Gender Identities Glossary
           </Typography>
@@ -122,6 +122,27 @@ const Dictionary = () => {
               </Grid>
             ))}
           </Grid>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClick}
+            sx={{
+              px: 2,
+              py: 1,
+              mt: 2,
+              borderRadius: 2,
+              marginBottom: 2,
+              //backgroundColor: '#543d7b',
+              backgroundColor: "#f99417",
+              color: '#fff8ed',
+              position: 'fixed',
+              bottom: '35px',
+              right: '30px',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+            startIcon={<img src={"forum_dictionary.png"} alt="forum" style={{ width: '50px' }} />}
+          />
         </Box>
       );
     };

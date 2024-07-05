@@ -61,6 +61,7 @@ const Login = () => {
             border: "none",
             // backgroundImage: "login_bg.jpg",
             backgroundColor: "#002a56", // Set the form background color
+            //backgroundColor: "#5C4F9F",
             color: "white", // Ensure text color is white for contrast
           }}
         >
@@ -97,7 +98,7 @@ const Login = () => {
                 color: "white",
                 ":hover": {
                   bgcolor: "white",
-                  color: "#543d7b",
+                  color: "#002a56",
                 },
               }}
               endIcon={<IoIosLogIn />}

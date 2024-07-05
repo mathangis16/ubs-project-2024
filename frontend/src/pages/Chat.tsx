@@ -74,11 +74,12 @@ const Chat = () => {
                     display:"flex", 
                     width:"100%", 
                     height:"100%",
-                    bgcolor: "rgb(17,29,39)",
+                    //bgcolor: "rgb(17,29,39)",
+                    bgcolor: "#005784",
                     borderRadius:5,
                     flexDirection:"column",
                     mx:3,
-                    marginTop:"80px",
+                    marginTop:"40px",
                     }}
                 >
                     <Avatar
@@ -144,7 +145,12 @@ const Chat = () => {
                     <ChatItem content={chat.content} role={chat.role} key={index}/>
                 ))}
                 </Box>
-                <div style={{width:"100%", borderRadius:8, backgroundColor:"rgb(17,27,39)", display:"flex", margin:"auto",}}>
+                <div style={{width:"100%", 
+                borderRadius:8, 
+                //backgroundColor:"rgb(17,27,39)", 
+                backgroundColor: "#002a56",
+                display:"flex", 
+                margin:"auto",}}>
                     {" "}
                     <input 
                         ref={inputRef}
