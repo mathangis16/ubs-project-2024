@@ -104,6 +104,7 @@ a {
 .homeTitle,
 .repliesTitle {
 	margin-bottom: 30px;
+	font-size: 35px;
 }
 .registerForm,
 .loginForm {

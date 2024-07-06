@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Admin from "./pages/Admin";
 import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
 import DiscussionForum from "./pages/DiscussionForum";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/menu" element={<Menu />} />
         )}
         <Route path="/chat" element={<Chat />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/discussionForum" element={<DiscussionForum />} />
         <Route path="/forumUser" element={<ForumUser />} />
         {/* <Route path="/:threadId/replies" element={<RepliesUser />} /> */}

@@ -29,7 +29,7 @@ const Login = () => {
     if (auth?.user) {
       console.log("User data:", auth.user); // Log the user data
       if (auth.user.isAdmin) {
-      navigate("/DiscussionForum");
+      navigate("/Admin");
       } else {
       navigate("/beforeQuestions");
       }
