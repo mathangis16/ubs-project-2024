@@ -27,7 +27,7 @@ const Admin = () => {
             }}
         >
             <Typography variant="h2" style={{ color: "black", paddingLeft: '180px', paddingTop: '0px' }} gutterBottom>
-                Welcome back Admin! 
+                Welcome back Mathangi! 
             </Typography>
             <Box display="flex" justifyContent="flex-start" alignItems="center" mt={2} gap={2} sx={{ paddingLeft: '90px' }}>
                 <Button

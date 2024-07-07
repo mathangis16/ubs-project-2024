@@ -127,7 +127,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const TextParallaxContentExample = () => {
   return (
-    <div style={{ backgroundColor: "#fff8ed" }}>
+    <div style={{ backgroundColor: "#f3eee9" }}>
       <TextParallaxContent
         imgUrl="image_people_final.png"
         subheading="To understand, minimize and uncover bias"
@@ -234,7 +234,7 @@ const OverlayCopy = ({
       }}
       ref={targetRef}
     >
-      <p style={{ marginBottom: "0.5rem", textAlign: "center", fontSize: "4.25rem", fontFamily: "Space Grotesk" }}>
+      <p style={{ marginBottom: "0.5rem", textAlign: "center", fontSize: "4.20rem", fontFamily: "Space Grotesk" }}>
         {subheading}
       </p>
       <p style={{ textAlign: "center", fontSize: "2.5rem", fontWeight: "bold" }}>
@@ -321,7 +321,7 @@ const ExampleContent = () => {
         <img 
           src="login_bg.jpg" 
           alt="People" 
-          style={{ width: "140%", marginLeft: "20px", marginRight: "90px", marginTop: "30px", height:"auto" }}
+          style={{ width: "140%", marginLeft: "8px", marginRight: "250px", marginTop: "30px", height:"auto" }}
         />
       </div>
     </div>

@@ -122,7 +122,7 @@ const Chat = () => {
                     > Clear Conversation </Button>
                 </Box>
             </Box>
-            <Box sx={{display:"flex", flex:{md:0.8, xs:1, sm:1}, flexDirection:"column", px:3,py:3}}>
+            <Box sx={{display:"flex", flex:{md:0.75, xs:1, sm:1}, flexDirection:"column", px:3,py:3}}>
                 {/* <Typography
                     sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",fontFamily:"Space Grotesk"}}
                 >
@@ -151,11 +151,13 @@ const Chat = () => {
                 //backgroundColor:"rgb(17,27,39)", 
                 backgroundColor: "#002a56",
                 display:"flex", 
-                margin:"auto",}}>
+                // margin:"auto",
+                }}>
                     {" "}
                     <input 
                         ref={inputRef}
                         type="text" 
+                        onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
                         style={{
                             width:"100%", 
                             backgroundColor:"transparent",

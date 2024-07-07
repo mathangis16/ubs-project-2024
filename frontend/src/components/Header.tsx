@@ -162,7 +162,7 @@ const Header = () => {
                 <Button style={{ color: "white", fontSize: "2.2rem" }}>☰</Button>
               </FlyoutLink>
               <NavigationLink
-                bg="#f99417"
+                bg="transparent"
                 textColor="white"
                 to="/"
                 text="Logout"
@@ -173,14 +173,14 @@ const Header = () => {
           ) : (
             <>
               <NavigationLink
-                bg="#f99417"
+                bg="transparent"
                 to="/login"
                 text="Login"
                 textColor="white"
                 //style={{ backgroundColor: "#f99417", color: "white", marginRight: "8px" }}
               />
               <NavigationLink
-                bg="#f99417"
+                bg="transparent"
                 textColor="white"
                 to="/signup"
                 text="Signup"
