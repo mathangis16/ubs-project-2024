@@ -75,7 +75,8 @@ const Chat = () => {
                     width:"100%", 
                     height:"100%",
                     //bgcolor: "rgb(17,29,39)",
-                    bgcolor: "#005784",
+                    //bgcolor: "#005784",
+                    bgcolor: "#002a56",
                     borderRadius:5,
                     flexDirection:"column",
                     mx:3,
@@ -94,10 +95,10 @@ const Chat = () => {
                         {auth?.user?.name[0]}
                         {auth?.user?.name.split(" ")[1][0]}
                     </Avatar>
-                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", fontSize:"20px"}}>
+                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", fontSize:"25px"}}>
                         Hi I am Tobias
                     </Typography>
-                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", my:5, p:2,fontStyle:"oblique"}}>
+                    <Typography sx={{mx:"auto", fontFamily:"Space Grotesk", my:5, p:3, fontStyle:"oblique", fontSize:"20px"}}>
                         Are you facing troubles at your workplace and dont know who to talk to?
                     </Typography>
                     <Typography sx={{mx:"auto", fontFamily:"Space Grotesk",p:2, fontSize:"20px"}}>
@@ -121,7 +122,7 @@ const Chat = () => {
                     > Clear Conversation </Button>
                 </Box>
             </Box>
-            <Box sx={{display:"flex", flex:{md:0.8, xs:1, sm:1}, flexDirection:"column", px:3,}}>
+            <Box sx={{display:"flex", flex:{md:0.8, xs:1, sm:1}, flexDirection:"column", px:3,py:3}}>
                 {/* <Typography
                     sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",fontFamily:"Space Grotesk"}}
                 >

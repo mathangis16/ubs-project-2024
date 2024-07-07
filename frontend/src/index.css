@@ -103,8 +103,8 @@ a {
 
 .homeTitle,
 .repliesTitle {
-	margin-bottom: 30px;
-	font-size: 35px;
+	margin-bottom: 50px;
+	font-size: 40px;
 }
 .registerForm,
 .loginForm {
@@ -138,10 +138,11 @@ a {
 .home__container {
 	display: flex;
 	flex-direction: column;
-	width: 75%;
+	width: 80%;
 }
 .homeBtn {
 	margin-bottom: 0px;
+	font-size: 20px;
 }
 .thread__container {
 	display: flex;
@@ -159,6 +160,7 @@ a {
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 20px;
+	font-size: 20px;
 }
 .likes__container {
 	display: flex;
@@ -232,7 +234,7 @@ a {
   }
   
   .forum-title {
-	font-size: 24px;
+	font-size: 40px;
 	margin-bottom: 20px;
 	text-align: center;
   }
@@ -307,6 +309,7 @@ a {
 
   .commentsBtn {
 	height: 20px;
+	margin-top: 10px;
   }
   
 /* For menu in header */

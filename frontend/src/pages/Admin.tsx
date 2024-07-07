@@ -39,7 +39,8 @@ const Admin = () => {
                         //py: 1,
                         borderRadius: 2,
                         fontSize:'20px',
-                        backgroundColor:'#30448c',
+                        //backgroundColor:'#30448c',
+                        backgroundColor:"#51538f",
                         color:'#fff8ed',
                         width: '300px'
                     }}
@@ -50,12 +51,12 @@ const Admin = () => {
                     url="https://calendly.com/mathangis16"
                     //@ts-ignore
                     rootElement={document.getElementById("root")}
-                    text="SCHEDULE DIVERSITY AND INCLUSION EVENTS"
+                    text="SCHEDULE DIVERSITY AND INCLUSION EVENTS!"
                     styles={{
                         border: 'none',
-                        borderRadius: '7px',
+                        borderRadius: '8px',
                         backgroundColor: '#51538f',
-                        color: 'white',
+                        color: '#fff8ed',
                         padding: '10px 20px',
                         fontSize: '20px',
                         cursor: 'pointer',
