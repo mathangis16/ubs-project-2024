@@ -107,6 +107,7 @@ a {
 .repliesTitle {
 	margin-bottom: 50px;
 	font-size: 40px;
+	color:#30448c;
 }
 .registerForm,
 .loginForm {
@@ -128,6 +129,7 @@ a {
 	font-weight: bold;
 	color: #fffbf5;
 	background-color: #51538f;        
+	/* background-color: #f99417; */
 	margin-bottom: 15px;
 }
 .homeForm {

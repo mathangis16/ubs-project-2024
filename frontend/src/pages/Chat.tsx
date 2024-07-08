@@ -151,7 +151,7 @@ const Chat = () => {
                 //backgroundColor:"rgb(17,27,39)", 
                 backgroundColor: "#002a56",
                 display:"flex", 
-                // margin:"auto",
+                margin:"auto",
                 }}>
                     {" "}
                     <input 

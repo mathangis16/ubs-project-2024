@@ -277,7 +277,7 @@ const Signup = () => {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
-        backgroundColor: "#fff8ed",
+        backgroundColor: "#f3eee9",
         marginTop:"40px",
       }}
     >
@@ -289,7 +289,7 @@ const Signup = () => {
           boxShadow: "10px 10px 20px #000",
           borderRadius: "10px",
           border: "none",
-          backgroundColor: "#002a56", // Set the form background color
+          backgroundColor: "#30448c", // Set the form background color
           color: "white", // Ensure text color is white for contrast
         }}
       >

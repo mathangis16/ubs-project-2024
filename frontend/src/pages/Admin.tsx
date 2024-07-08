@@ -26,10 +26,10 @@ const Admin = () => {
                 padding: '20px',
             }}
         >
-            <Typography variant="h2" style={{ color: "black", paddingLeft: '180px', paddingTop: '0px' }} gutterBottom>
+            <Typography variant="h2" style={{ color: "black", paddingLeft: '140px', paddingTop: '0px' }} gutterBottom>
                 Welcome back Mathangi! 
             </Typography>
-            <Box display="flex" justifyContent="flex-start" alignItems="center" mt={2} gap={2} sx={{ paddingLeft: '90px' }}>
+            <Box display="flex" justifyContent="flex-start" alignItems="center" mt={2} gap={2} sx={{ paddingLeft: '100px' }}>
                 <Button
                     variant="contained"
                     color="primary"
@@ -61,6 +61,7 @@ const Admin = () => {
                         fontSize: '20px',
                         cursor: 'pointer',
                         width: '500px',
+                        fontWeight: '500'
                     }}
                 />
             </Box>
