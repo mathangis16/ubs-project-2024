@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
 import DiscussionForum from "./pages/DiscussionForum";
 import ForumUser from "./pages/ForumUser";
+import ViewReplies from "./pages/ViewReplies";
 //import RepliesUser from "./pages/RepliesUser"
 import Questionaire from "./pages/Questionaire";
 import Dictionary from "./pages/Dictionary";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/discussionForum" element={<DiscussionForum />} />
         <Route path="/forumUser" element={<ForumUser />} />
+        <Route path="/ViewReplies" element={<ViewReplies />} />
         {/* <Route path="/:threadId/replies" element={<RepliesUser />} /> */}
         <Route path="/questionaire" element={<Questionaire />} />
         <Route path="/beforeQuestions" element={<BeforeQuestions />} />
