@@ -193,7 +193,7 @@ const ForumUser = () => {
     try {
       const username = auth?.user?.name;
       if (username) {
-        const response = await likeThread(threadId, username);
+        // const response = await likeThread(threadId, username);
         setThreadList((prevThreads) =>
           prevThreads.map((thread) =>
             thread.id === threadId ? { ...thread, likes: [...thread.likes, { user: username }] } : thread

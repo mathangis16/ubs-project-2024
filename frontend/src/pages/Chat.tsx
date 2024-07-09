@@ -122,7 +122,7 @@ const Chat = () => {
                     > Clear Conversation </Button>
                 </Box>
             </Box>
-            <Box sx={{display:"flex", flex:{md:0.75, xs:1, sm:1}, flexDirection:"column", px:3,py:3}}>
+            <Box sx={{display:"flex", flex:{md:0.75, xs:1, sm:1}, flexDirection:"column", px:3,py:3, backgroundColor:"grey", marginLeft:"60px", marginTop:"40px", borderRadius:"5px"}}>
                 {/* <Typography
                     sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",fontFamily:"Space Grotesk"}}
                 >
