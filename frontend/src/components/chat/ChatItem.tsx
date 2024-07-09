@@ -20,7 +20,7 @@ const ChatItem = ({ content, role }: { content: string; role: "user" | "assistan
         {auth?.user?.name.split(" ")[1][0]}
       </Avatar> */}
       <Box>
-        <Typography fontSize={"25px"} fontFamily={"Space Grotesk"} textAlign={"left"} bgcolor={"#004d56"} paddingX={"10px"} borderRadius={"5px"}>{content}</Typography>
+        <Typography fontSize={"25px"} fontFamily={"Space Grotesk"} textAlign={"left"} bgcolor={"#30448c"} paddingX={"10px"} borderRadius={"5px"}>{content}</Typography>
       </Box>
       <Avatar sx={{ m1: "0", bgcolor: "black", color: "white", width: 60, height: 60 }}>
         {auth?.user?.name[0]}

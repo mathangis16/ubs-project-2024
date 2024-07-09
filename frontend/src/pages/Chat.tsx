@@ -80,7 +80,7 @@ const Chat = () => {
                     borderRadius:5,
                     flexDirection:"column",
                     mx:3,
-                    marginTop:"40px",
+                    marginTop:"30px",
                     }}
                 >
                     <Avatar
@@ -122,7 +122,7 @@ const Chat = () => {
                     > Clear Conversation </Button>
                 </Box>
             </Box>
-            <Box sx={{display:"flex", flex:{md:0.75, xs:1, sm:1}, flexDirection:"column", px:3,py:3, backgroundColor:"grey", marginLeft:"60px", marginTop:"40px", borderRadius:"5px"}}>
+            <Box sx={{display:"flex", flex:{md:0.75, xs:1, sm:1}, flexDirection:"column", px:3,py:3, backgroundColor:"#dcebf0", marginLeft:"70px", marginTop:"30px", borderRadius:"5px"}}>
                 {/* <Typography
                     sx={{textAlign:"center", fontSize:"40px", color:"#543d7b", mb:2, mx:"auto",fontWeight:"600",fontFamily:"Space Grotesk"}}
                 >
@@ -161,12 +161,13 @@ const Chat = () => {
                         style={{
                             width:"100%", 
                             backgroundColor:"transparent",
-                            padding:"30px",
+                            padding:"20px",
                             border:"none",
                             outline:"none",
                             color:"white",
                             fontSize:"20px",
                             fontFamily:"Space Grotesk",
+                            height:"70px"
                         }}
                     />
                 <IconButton onClick={handleSubmit} sx={{ m1:"auto", color:"white", mx:1}}>

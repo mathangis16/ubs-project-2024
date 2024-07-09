@@ -83,7 +83,7 @@ input {
 	padding: 10px 20px;
 	border: 1px solid #ddd;
 	border-radius: 3px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 a {
 	text-decoration: none;
@@ -172,8 +172,8 @@ a {
 	margin-right: 25px;
 }
 .likesBtn {
-	height: 30px;
-	color: #f99417;
+	height: 26px;
+	color: #30448c;
 	cursor: pointer;
 }
 .react__container {
@@ -278,7 +278,7 @@ a {
   .reply-button {
 	align-self: flex-end;
 	padding: 10px 20px;
-	background-color: #543d7b;
+	background-color: #30448c;
 	color: #fff;
 	border: none;
 	border-radius: 5px;
@@ -287,7 +287,7 @@ a {
   
   .reply-button:hover {
 	background-color: white;
-	color: #543d7b;
+	color: #30448c;
   }
   
   .replies-container {
@@ -312,7 +312,7 @@ a {
   }
 
   .commentsBtn {
-	height: 20px;
+	height: 30px;
 	margin-top: 10px;
   }
   
