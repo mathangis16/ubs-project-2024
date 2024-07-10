@@ -265,7 +265,7 @@ const Signup = () => {
 
   useEffect(() => {
     if (auth?.user) {
-      return navigate("/menu");
+      return navigate("/beforeQuestions");
     }
   }, [auth]);
 
